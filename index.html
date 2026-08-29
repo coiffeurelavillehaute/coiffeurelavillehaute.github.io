@@ -236,7 +236,7 @@ html[dir="rtl"] .hero-sound-btn{right:auto;left:28px}
 
 /* ===== services ===== */
 .services{background:var(--ivory)}
-.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
 .svc-card{
   background:var(--white);border:1px solid var(--line);border-radius:10px;padding:30px 26px;
   transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;
@@ -253,6 +253,7 @@ html[dir="rtl"] .hero-sound-btn{right:auto;left:28px}
 .gallery{background:var(--ivory)}
 .gal-grid{
   display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:16px;
+  grid-auto-flow:dense;
 }
 .gal-item{
   position:relative;overflow:hidden;border-radius:12px;cursor:pointer;
@@ -260,7 +261,7 @@ html[dir="rtl"] .hero-sound-btn{right:auto;left:28px}
 }
 .gal-item.gal-big{grid-column:span 2;grid-row:span 2}
 .gal-item:nth-child(2){grid-column:span 2}
-.gal-item:nth-child(3){grid-column:span 2}
+.gal-item:nth-child(7){grid-column:span 2}
 .gal-item img{
   width:100%;height:100%;object-fit:cover;display:block;
   transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .5s;
@@ -441,6 +442,65 @@ html[dir="rtl"] .fab-tooltip{right:auto;left:70px}
 .fab:hover .fab-tooltip{opacity:1}
 .fab-wa{background:#25D366}
 .fab-wa .ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid #25D366;animation:ring-pulse 2.2s ease-out infinite}
+.fab-wa-wrap{position:relative}
+.wa-menu{
+  position:absolute;bottom:0;right:70px;
+  background:var(--white);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.22);
+  border:1px solid var(--line);padding:8px;display:none;flex-direction:column;gap:2px;min-width:220px;
+}
+html[dir="rtl"] .wa-menu{right:auto;left:70px}
+.wa-menu.open{display:flex}
+.wa-menu-item{
+  display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;transition:background .15s;
+}
+.wa-menu-item:hover{background:var(--ivory)}
+.wa-flag{font-size:20px;flex-shrink:0}
+.wa-menu-text{display:flex;flex-direction:column;line-height:1.3}
+.wa-menu-text strong{font-size:13px;color:var(--navy-deep);font-weight:600}
+.wa-menu-text span{font-size:11.5px;color:var(--ink-soft)}
+@media (max-width:560px){
+  .wa-menu{right:64px;min-width:200px}
+  html[dir="rtl"] .wa-menu{left:64px}
+}
+
+/* social speed-dial */
+.social-fab-wrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+html[dir="rtl"] .social-fab-wrap{align-items:flex-start}
+.fab-social{
+  width:52px;height:52px;background:linear-gradient(135deg,#405de6 0%,#5851db 20%,#833ab4 40%,#c13584 60%,#e1306c 80%,#fd1d1d 100%);
+  transition:transform .3s,box-shadow .3s;
+}
+.fab-social.open{transform:rotate(180deg)}
+.fab-social svg{width:22px;height:22px}
+.social-menu{
+  display:flex;flex-direction:column;align-items:flex-end;gap:12px;
+  max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .25s;
+}
+html[dir="rtl"] .social-menu{align-items:flex-start}
+.social-menu.open{max-height:400px;opacity:1;pointer-events:auto;overflow:visible}
+.social-item{
+  width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:var(--white);box-shadow:0 8px 20px rgba(0,0,0,.22);position:relative;flex-shrink:0;
+  opacity:0;transform:translateY(14px) scale(.7);transition:transform .35s cubic-bezier(.2,.9,.3,1.3),opacity .3s;
+  transition-delay:var(--d,0s);
+}
+.social-menu.open .social-item{opacity:1;transform:translateY(0) scale(1)}
+.social-item svg{width:22px;height:22px}
+.social-item:hover{transform:translateY(-3px) scale(1.08)}
+.social-menu.open .social-item:hover{transform:translateY(-3px) scale(1.08)}
+.si-ig{background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
+.si-tt{background:#010101}
+.si-tt svg{filter:drop-shadow(1px 1px 0 #25F4EE) drop-shadow(-1px -1px 0 #FE2C55)}
+.si-fb{background:#1877F2}
+.si-yt{background:#FF0000}
+.social-item .fab-tooltip{right:60px}
+html[dir="rtl"] .social-item .fab-tooltip{right:auto;left:60px}
+@media (max-width:560px){
+  .social-item{width:44px;height:44px}
+  .social-item svg{width:19px;height:19px}
+  .fab-social{width:48px;height:48px}
+}
+
 .fab-call{background:var(--navy);width:52px;height:52px}
 .fab-gps{background:var(--red);width:52px;height:52px}
 @keyframes ring-pulse{0%{transform:scale(.85);opacity:.9}100%{transform:scale(1.5);opacity:0}}
@@ -506,7 +566,7 @@ html[dir="rtl"] .qr-btn{text-align:right}
   .feature-list{grid-template-columns:1fr}
   .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
   .gal-item.gal-big{grid-column:span 2;grid-row:span 1}
-  .gal-item:nth-child(2),.gal-item:nth-child(3){grid-column:span 1}
+  .gal-item:nth-child(2),.gal-item:nth-child(7){grid-column:span 1}
 }
 @media (max-width:800px){
   .nav-links{display:none}
@@ -524,6 +584,7 @@ html[dir="rtl"] .qr-btn{text-align:right}
   html[dir="rtl"] .ai-launcher{right:14px}
   .gal-grid{grid-template-columns:1fr;grid-auto-rows:220px}
   .gal-item.gal-big{grid-column:span 1}
+  .gal-item:nth-child(2),.gal-item:nth-child(7){grid-column:span 1}
   .gal-item figcaption{opacity:1;background:linear-gradient(to top,rgba(11,20,45,.75) 0%,rgba(11,20,45,0) 65%)}
 }
 
@@ -683,29 +744,36 @@ html[dir="rtl"] .mobile-menu .sheet{right:auto;left:0}
         <div class="svc-ic">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg>
         </div>
-        <h3 data-i18n="svc1_title">Coupe classique</h3>
-        <p data-i18n="svc1_text">Coupe sur mesure adaptée à la forme du visage et au style de chacun.</p>
+        <h3 data-i18n="svc1_title">Coiffure Cheveux / Rasage Visage</h3>
+        <p data-i18n="svc1_text">Coupe de cheveux sur mesure et rasage de précision pour un résultat net et soigné.</p>
       </div>
       <div class="svc-card">
         <div class="svc-ic">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3c0 3-2 4-2 7a5 5 0 0 0 10 0c0-3-2-4-2-7"/><path d="M9 21c0-2 1-3 3-3s3 1 3 3"/></svg>
         </div>
-        <h3 data-i18n="svc2_title">Taille de barbe</h3>
-        <p data-i18n="svc2_text">Taille et sculpture de barbe précise, finitions au rasoir.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-ic">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-        </div>
-        <h3 data-i18n="svc3_title">Rasage traditionnel</h3>
-        <p data-i18n="svc3_text">Rasage au coupe-chou façon Ville Haute, serviette chaude incluse.</p>
+        <h3 data-i18n="svc2_title">Shampoing</h3>
+        <p data-i18n="svc2_text">Lavage soigné avec des produits sélectionnés pour la santé du cuir chevelu.</p>
       </div>
       <div class="svc-card">
         <div class="svc-ic">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         </div>
-        <h3 data-i18n="svc4_title">Soin visage</h3>
-        <p data-i18n="svc4_text">Nettoyage, gommage et masque pour une peau nette et reposée.</p>
+        <h3 data-i18n="svc3_title">Soin Visage</h3>
+        <p data-i18n="svc3_text">Nettoyage, gommage et masque pour une peau nette et reposée.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v6l-4 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-4-9V3"/><path d="M9 3h6M8 12h8"/></svg>
+        </div>
+        <h3 data-i18n="svc4_title">Protéine cheveux</h3>
+        <p data-i18n="svc4_text">Traitement protéiné en profondeur pour renforcer et fortifier la fibre capillaire.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.6 4.6L18 9l-4.4 1.4L12 15l-1.6-4.6L6 9l4.4-1.4L12 3z"/><path d="M5 19l1-2.8L9 15l-3 -1.2L5 11l-1 2.8L1 15l3 1.2L5 19z"/></svg>
+        </div>
+        <h3 data-i18n="svc5_title">Kératine cheveux</h3>
+        <p data-i18n="svc5_text">Soin à la kératine pour lisser, nourrir et redonner brillance à la chevelure.</p>
       </div>
     </div>
   </div>
@@ -744,6 +812,42 @@ html[dir="rtl"] .mobile-menu .sheet{right:auto;left:0}
         <img src="https://i.imgur.com/aHqQfbf.png" alt="" loading="lazy">
         <figcaption>
           <span class="gal-cap" data-i18n="gal_cap3">Finitions soignées</span>
+          <span class="gal-zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="gal-item" data-idx="3">
+        <img src="https://i.imgur.com/o11trVl.png" alt="" loading="lazy">
+        <figcaption>
+          <span class="gal-cap" data-i18n="gal_cap4">Espace d'accueil</span>
+          <span class="gal-zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="gal-item" data-idx="4">
+        <img src="https://i.imgur.com/xUFPRac.png" alt="" loading="lazy">
+        <figcaption>
+          <span class="gal-cap" data-i18n="gal_cap5">Postes de coiffure</span>
+          <span class="gal-zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="gal-item" data-idx="5">
+        <img src="https://i.imgur.com/KBUNGEe.png" alt="" loading="lazy">
+        <figcaption>
+          <span class="gal-cap" data-i18n="gal_cap6">Notre équipe au travail</span>
+          <span class="gal-zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="gal-item" data-idx="6">
+        <img src="https://i.imgur.com/WWXKPln.png" alt="" loading="lazy">
+        <figcaption>
+          <span class="gal-cap" data-i18n="gal_cap7">Ambiance du salon</span>
           <span class="gal-zoom">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
           </span>
@@ -881,10 +985,11 @@ html[dir="rtl"] .mobile-menu .sheet{right:auto;left:0}
             <div class="field">
               <label data-i18n="form_service">Service souhaité *</label>
               <div class="chip-group" id="serviceChips">
-                <span class="chip active" data-val="coupe" data-i18n="chip1">Coupe classique</span>
-                <span class="chip" data-val="barbe" data-i18n="chip2">Taille de barbe</span>
-                <span class="chip" data-val="rasage" data-i18n="chip3">Rasage traditionnel</span>
-                <span class="chip" data-val="soin" data-i18n="chip4">Soin visage</span>
+                <span class="chip active" data-val="coiffure" data-i18n="chip1">Coiffure Cheveux / Rasage Visage</span>
+                <span class="chip" data-val="shampoing" data-i18n="chip2">Shampoing</span>
+                <span class="chip" data-val="soin" data-i18n="chip3">Soin Visage</span>
+                <span class="chip" data-val="proteine" data-i18n="chip4">Protéine cheveux</span>
+                <span class="chip" data-val="keratine" data-i18n="chip5">Kératine cheveux</span>
               </div>
             </div>
             <div class="field">
@@ -928,11 +1033,54 @@ html[dir="rtl"] .mobile-menu .sheet{right:auto;left:0}
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
     <span class="fab-tooltip" data-i18n="fab_call">Appeler</span>
   </a>
-  <a class="fab fab-wa" id="waFab" href="#" target="_blank" rel="noopener">
-    <span class="ring" aria-hidden="true"></span>
-    <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C9.37 3 3.98 8.39 3.98 15.06c0 2.24.6 4.33 1.66 6.13L3 29l7.99-2.6a12.03 12.03 0 0 0 5.05 1.1h.01c6.67 0 12.06-5.4 12.06-12.06C28.11 8.39 22.72 3 16.05 3zM16.05 25.5c-1.58 0-3.13-.42-4.48-1.22l-.32-.19-4.74 1.54 1.55-4.62-.21-.34a9.92 9.92 0 0 1-1.53-5.3c0-5.5 4.48-9.98 9.98-9.98 5.5 0 9.98 4.48 9.98 9.98 0 5.5-4.48 9.98-9.98 9.98zM21.35 17.75c-.29-.14-1.71-.84-1.97-.94-.26-.1-.46-.14-.65.15-.19.29-.75.94-.92 1.14-.17.19-.34.22-.63.07-.29-.14-1.2-.44-2.29-1.41-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.03 2.82 1.17 3.01.14.19 2.03 3.1 4.92 4.35.69.3 1.22.48 1.64.61.69.22 1.31.19 1.81.11.55-.08 1.71-.7 1.95-1.37.24-.68.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34z"/></svg>
-    <span class="fab-tooltip" data-i18n="fab_wa">Discuter sur WhatsApp</span>
-  </a>
+  <div class="fab-wa-wrap">
+    <button class="fab fab-wa" id="waFabBtn" aria-haspopup="true" aria-expanded="false">
+      <span class="ring" aria-hidden="true"></span>
+      <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C9.37 3 3.98 8.39 3.98 15.06c0 2.24.6 4.33 1.66 6.13L3 29l7.99-2.6a12.03 12.03 0 0 0 5.05 1.1h.01c6.67 0 12.06-5.4 12.06-12.06C28.11 8.39 22.72 3 16.05 3zM16.05 25.5c-1.58 0-3.13-.42-4.48-1.22l-.32-.19-4.74 1.54 1.55-4.62-.21-.34a9.92 9.92 0 0 1-1.53-5.3c0-5.5 4.48-9.98 9.98-9.98 5.5 0 9.98 4.48 9.98 9.98 0 5.5-4.48 9.98-9.98 9.98zM21.35 17.75c-.29-.14-1.71-.84-1.97-.94-.26-.1-.46-.14-.65.15-.19.29-.75.94-.92 1.14-.17.19-.34.22-.63.07-.29-.14-1.2-.44-2.29-1.41-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.03 2.82 1.17 3.01.14.19 2.03 3.1 4.92 4.35.69.3 1.22.48 1.64.61.69.22 1.31.19 1.81.11.55-.08 1.71-.7 1.95-1.37.24-.68.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34z"/></svg>
+      <span class="fab-tooltip" data-i18n="fab_wa">Discuter sur WhatsApp</span>
+    </button>
+    <div class="wa-menu" id="waMenu">
+      <a id="waLinkFr" href="#" target="_blank" rel="noopener" class="wa-menu-item">
+        <span class="wa-flag">🇫🇷</span>
+        <span class="wa-menu-text">
+          <strong data-i18n="wa_menu_fr_label">France</strong>
+          <span>+33 7 58 97 26 84</span>
+        </span>
+      </a>
+      <a id="waLinkMa" href="#" target="_blank" rel="noopener" class="wa-menu-item">
+        <span class="wa-flag">🇲🇦</span>
+        <span class="wa-menu-text">
+          <strong data-i18n="wa_menu_ma_label">Maroc</strong>
+          <span>+212 6 14 89 97 83</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="social-fab-wrap">
+    <div class="social-menu" id="socialMenu">
+      <a class="social-item si-ig" href="https://www.instagram.com/mostafasami20255?utm_source=qr&igsi=MWUyMThlZ3RraGltYg==" target="_blank" rel="noopener" style="--d:0s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        <span class="fab-tooltip" data-i18n="social_ig">Instagram</span>
+      </a>
+      <a class="social-item si-tt" href="https://www.tiktok.com/@stefanhalapa49?_r=1&_t=ZN-99I4BEgTb3G" target="_blank" rel="noopener" style="--d:.05s">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.78-1.47-1.9-1.55-3.15h-3.15v13.44c0 1.66-1.35 3-3 3a3 3 0 0 1 0-6c.33 0 .65.05.94.15V9.9a6.1 6.1 0 0 0-.94-.07 6.15 6.15 0 1 0 6.15 6.15V9.4a9.3 9.3 0 0 0 5.42 1.74V8.02c-1.4 0-2.7-.45-3.87-1.2-.35-.23-.68-.5-1-.99z"/></svg>
+        <span class="fab-tooltip" data-i18n="social_tt">TikTok</span>
+      </a>
+      <a class="social-item si-fb" href="https://www.facebook.com/share/1DN1Z8WWA9/" target="_blank" rel="noopener" style="--d:.1s">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+        <span class="fab-tooltip" data-i18n="social_fb">Facebook</span>
+      </a>
+      <a class="social-item si-yt" href="https://youtube.com/@coiffeurelavillehaute?si=pM_m-Wcv2jbAHru2" target="_blank" rel="noopener" style="--d:.15s">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.6-.46-5.3a2.87 2.87 0 0 0-2-2C18.9 4.2 12 4.2 12 4.2s-6.9 0-8.54.5a2.87 2.87 0 0 0-2 2C1 8.4 1 12 1 12s0 3.6.46 5.3a2.87 2.87 0 0 0 2 2c1.64.5 8.54.5 8.54.5s6.9 0 8.54-.5a2.87 2.87 0 0 0 2-2C23 15.6 23 12 23 12z" stroke="none"/><path d="M9.7 15.5l6.1-3.5-6.1-3.5v7z" fill="var(--white)" stroke="none"/></svg>
+        <span class="fab-tooltip" data-i18n="social_yt">YouTube</span>
+      </a>
+    </div>
+    <button class="fab fab-social" id="socialToggle" aria-haspopup="true" aria-expanded="false" aria-label="social links">
+      <svg id="socialIconOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
+      <svg id="socialIconClose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="display:none"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
 </div>
 
 <!-- ============ AI AGENT WIDGET ============ -->
@@ -966,7 +1114,8 @@ html[dir="rtl"] .mobile-menu .sheet{right:auto;left:0}
    CONFIG — replace with real business data
    ============================================================ */
 const CONFIG = {
-  whatsappNumber: "33758972684", // remplacez par le vrai numéro WhatsApp (format international sans +)
+  whatsappNumber: "33758972684", // numéro WhatsApp France (format international sans +)
+  whatsappNumberMa: "212614899783", // numéro WhatsApp Maroc (format international sans +)
   phoneNumber: "+33758972684",
   gpsQuery: "88+Angle+Jamil+Sedki+Zouhaoui+et+Loubnane+Kenitra+14000+Maroc"
 };
@@ -993,12 +1142,13 @@ fr:{
   about_f1:"Coiffeurs certifiés", about_f2:"Matériel stérilisé", about_f3:"Sur rendez-vous", about_f4:"Produits premium",
   svc_eyebrow:"Nos prestations", svc_title:"Des soins pensés pour chaque style",
   svc_sub:"Une sélection de services classiques et modernes, réalisés avec précision par notre équipe.",
-  svc1_title:"Coupe classique", svc1_text:"Coupe sur mesure adaptée à la forme du visage et au style de chacun.",
-  svc2_title:"Taille de barbe", svc2_text:"Taille et sculpture de barbe précise, finitions au rasoir.",
-  svc3_title:"Rasage traditionnel", svc3_text:"Rasage au coupe-chou façon Ville Haute, serviette chaude incluse.",
-  svc4_title:"Soin visage", svc4_text:"Nettoyage, gommage et masque pour une peau nette et reposée.",
+  svc1_title:"Coiffure Cheveux / Rasage Visage", svc1_text:"Coupe de cheveux sur mesure et rasage de précision pour un résultat net et soigné.",
+  svc2_title:"Shampoing", svc2_text:"Lavage soigné avec des produits sélectionnés pour la santé du cuir chevelu.",
+  svc3_title:"Soin Visage", svc3_text:"Nettoyage, gommage et masque pour une peau nette et reposée.",
+  svc4_title:"Protéine cheveux", svc4_text:"Traitement protéiné en profondeur pour renforcer et fortifier la fibre capillaire.",
+  svc5_title:"Kératine cheveux", svc5_text:"Soin à la kératine pour lisser, nourrir et redonner brillance à la chevelure.",
   gal_eyebrow:"Galerie", gal_title:"L'univers Ville Haute en images", gal_sub:"Un aperçu du salon, de l'ambiance et du travail de précision de notre équipe.",
-  gal_cap1:"L'intérieur du salon", gal_cap2:"Précision du geste", gal_cap3:"Finitions soignées",
+  gal_cap1:"L'intérieur du salon", gal_cap2:"Précision du geste", gal_cap3:"Finitions soignées", gal_cap4:"Espace d'accueil", gal_cap5:"Postes de coiffure", gal_cap6:"Notre équipe au travail", gal_cap7:"Ambiance du salon",
   rev_eyebrow:"Avis clients", rev_title:"Ce que disent nos clients", rev_sub:"Sur 7 avis vérifiés", rev_src:"Avis Google",
   contact_eyebrow:"Contact", contact_title:"Réservez votre créneau",
   contact_sub:"Remplissez le formulaire ou contactez-nous directement — nous répondons rapidement.",
@@ -1010,13 +1160,13 @@ fr:{
   form_email:"E-mail", form_err_email:"Adresse e-mail invalide.",
   form_date:"Date souhaitée *", form_err_date:"Veuillez choisir une date.",
   form_service:"Service souhaité *",
-  chip1:"Coupe classique", chip2:"Taille de barbe", chip3:"Rasage traditionnel", chip4:"Soin visage",
+  chip1:"Coiffure Cheveux / Rasage Visage", chip2:"Shampoing", chip3:"Soin Visage", chip4:"Protéine cheveux", chip5:"Kératine cheveux",
   form_msg:"Message (optionnel)", form_msg_ph:"Précisez vos besoins ou vos disponibilités...",
   form_submit:"Envoyer ma demande",
   form_success_title:"Demande envoyée !", form_success_text:"Merci, nous vous recontactons très vite pour confirmer votre rendez-vous.",
   foot_rights:"© 2026 Maison La Ville Haute. Tous droits réservés.",
   foot_credit:"Site créé par <strong>Herio Marketing Digital 360° Maroc</strong>",
-  fab_gps:"Itinéraire", fab_call:"Appeler", fab_wa:"Discuter sur WhatsApp",
+  fab_gps:"Itinéraire", fab_call:"Appeler", fab_wa:"Discuter sur WhatsApp", wa_menu_fr_label:"France", wa_menu_ma_label:"Maroc", social_ig:"Instagram", social_tt:"TikTok", social_fb:"Facebook", social_yt:"YouTube",
   ai_name:"Assistant Ville Haute", ai_status:"En ligne", ai_input_ph:"Écrivez votre question...",
   ai_greeting:"Bonjour 👋 Je suis l'assistant de Maison La Ville Haute. Comment puis-je vous aider ?",
   ai_q1:"Quels sont vos horaires ?", ai_q2:"Où êtes-vous situés ?", ai_q3:"Quels sont vos tarifs ?", ai_q4:"Parler à un humain",
@@ -1046,12 +1196,13 @@ ar:{
   about_f1:"حلاقون معتمدون", about_f2:"معدات معقّمة", about_f3:"بموعد مسبق", about_f4:"منتجات عالية الجودة",
   svc_eyebrow:"خدماتنا", svc_title:"عناية مصممة لكل ستايل",
   svc_sub:"مجموعة من الخدمات الكلاسيكية والعصرية، تُنجز بدقة من طرف فريقنا.",
-  svc1_title:"قصة كلاسيكية", svc1_text:"قصة مخصصة تتناسب مع شكل الوجه وأسلوب كل زبون.",
-  svc2_title:"تهذيب اللحية", svc2_text:"تهذيب ونحت دقيق للحية، مع لمسات نهائية بالموس.",
-  svc3_title:"حلاقة تقليدية", svc3_text:"حلاقة بالموس على الطريقة التقليدية، مع منشفة ساخنة.",
-  svc4_title:"عناية بالوجه", svc4_text:"تنظيف وتقشير وقناع لبشرة نظيفة ومنتعشة.",
+  svc1_title:"قص الشعر / حلاقة الوجه", svc1_text:"قصة شعر مخصصة وحلاقة دقيقة للحصول على مظهر نظيف وأنيق.",
+  svc2_title:"شامبوان", svc2_text:"غسل معتنى به بمنتجات مختارة للحفاظ على صحة فروة الرأس.",
+  svc3_title:"عناية بالوجه", svc3_text:"تنظيف وتقشير وقناع لبشرة نظيفة ومنتعشة.",
+  svc4_title:"بروتين الشعر", svc4_text:"علاج بالبروتين في العمق لتقوية وتغذية الشعر.",
+  svc5_title:"كيراتين الشعر", svc5_text:"علاج بالكيراتين لتنعيم الشعر وتغذيته وإعادة اللمعان إليه.",
   gal_eyebrow:"معرض الصور", gal_title:"أجواء فيل أوت بالصور", gal_sub:"لمحة عن الصالون وأجوائه ودقة عمل فريقنا.",
-  gal_cap1:"داخل الصالون", gal_cap2:"دقة اليد", gal_cap3:"لمسات نهائية متقنة",
+  gal_cap1:"داخل الصالون", gal_cap2:"دقة اليد", gal_cap3:"لمسات نهائية متقنة", gal_cap4:"فضاء الاستقبال", gal_cap5:"محطات الحلاقة", gal_cap6:"فريقنا أثناء العمل", gal_cap7:"أجواء الصالون",
   rev_eyebrow:"آراء الزبناء", rev_title:"ماذا يقول عملاؤنا", rev_sub:"7 تقييمات موثقة", rev_src:"تقييم Google",
   contact_eyebrow:"اتصل بنا", contact_title:"احجز موعدك",
   contact_sub:"املأ الاستمارة أو تواصل معنا مباشرة — نرد بسرعة.",
@@ -1063,13 +1214,13 @@ ar:{
   form_email:"البريد الإلكتروني", form_err_email:"البريد الإلكتروني غير صحيح.",
   form_date:"التاريخ المرغوب *", form_err_date:"يرجى اختيار تاريخ.",
   form_service:"الخدمة المرغوبة *",
-  chip1:"قصة كلاسيكية", chip2:"تهذيب اللحية", chip3:"حلاقة تقليدية", chip4:"عناية بالوجه",
+  chip1:"قص الشعر / حلاقة الوجه", chip2:"شامبوان", chip3:"عناية بالوجه", chip4:"بروتين الشعر", chip5:"كيراتين الشعر",
   form_msg:"ملاحظة (اختياري)", form_msg_ph:"حدد احتياجاتكم أو أوقات توفركم...",
   form_submit:"إرسال الطلب",
   form_success_title:"تم إرسال الطلب!", form_success_text:"شكرًا لكم، سنتواصل معكم قريبًا لتأكيد الموعد.",
   foot_rights:"© 2026 ميزون فيل أوت. جميع الحقوق محفوظة.",
   foot_credit:"الموقع من إنشاء <strong>Herio Marketing Digital 360° Maroc</strong>",
-  fab_gps:"الاتجاهات", fab_call:"اتصل بنا", fab_wa:"تحدث عبر واتساب",
+  fab_gps:"الاتجاهات", fab_call:"اتصل بنا", fab_wa:"تحدث عبر واتساب", wa_menu_fr_label:"فرنسا", wa_menu_ma_label:"المغرب", social_ig:"إنستغرام", social_tt:"تيك توك", social_fb:"فيسبوك", social_yt:"يوتيوب",
   ai_name:"مساعد فيل أوت", ai_status:"متصل الآن", ai_input_ph:"اكتب سؤالك...",
   ai_greeting:"مرحبًا 👋 أنا المساعد الافتراضي لميزون فيل أوت. كيف يمكنني مساعدتك؟",
   ai_q1:"ما هي أوقات العمل؟", ai_q2:"أين يقع الصالون؟", ai_q3:"ما هي أسعاركم؟", ai_q4:"التحدث مع شخص",
@@ -1099,12 +1250,13 @@ es:{
   about_f1:"Peluqueros certificados", about_f2:"Material esterilizado", about_f3:"Con cita previa", about_f4:"Productos premium",
   svc_eyebrow:"Nuestros servicios", svc_title:"Cuidados pensados para cada estilo",
   svc_sub:"Una selección de servicios clásicos y modernos, realizados con precisión por nuestro equipo.",
-  svc1_title:"Corte clásico", svc1_text:"Corte a medida adaptado a la forma del rostro y el estilo de cada cliente.",
-  svc2_title:"Arreglo de barba", svc2_text:"Arreglo y perfilado preciso de barba, acabados a navaja.",
-  svc3_title:"Afeitado tradicional", svc3_text:"Afeitado a navaja al estilo Ville Haute, con toalla caliente incluida.",
-  svc4_title:"Tratamiento facial", svc4_text:"Limpieza, exfoliación y mascarilla para una piel fresca y cuidada.",
+  svc1_title:"Corte de cabello / Afeitado facial", svc1_text:"Corte a medida y afeitado de precisión para un resultado impecable.",
+  svc2_title:"Lavado (Shampoing)", svc2_text:"Lavado cuidadoso con productos seleccionados para la salud del cuero cabelludo.",
+  svc3_title:"Tratamiento facial", svc3_text:"Limpieza, exfoliación y mascarilla para una piel fresca y cuidada.",
+  svc4_title:"Proteína capilar", svc4_text:"Tratamiento de proteínas en profundidad para fortalecer la fibra capilar.",
+  svc5_title:"Keratina capilar", svc5_text:"Tratamiento de keratina para alisar, nutrir y devolver el brillo al cabello.",
   gal_eyebrow:"Galería", gal_title:"El universo Ville Haute en imágenes", gal_sub:"Un vistazo al salón, al ambiente y al trabajo de precisión de nuestro equipo.",
-  gal_cap1:"El interior del salón", gal_cap2:"Precisión en cada gesto", gal_cap3:"Acabados cuidados",
+  gal_cap1:"El interior del salón", gal_cap2:"Precisión en cada gesto", gal_cap3:"Acabados cuidados", gal_cap4:"Zona de recepción", gal_cap5:"Puestos de peluquería", gal_cap6:"Nuestro equipo trabajando", gal_cap7:"Ambiente del salón",
   rev_eyebrow:"Reseñas de clientes", rev_title:"Lo que dicen nuestros clientes", rev_sub:"7 reseñas verificadas", rev_src:"Reseña de Google",
   contact_eyebrow:"Contacto", contact_title:"Reserva tu cita",
   contact_sub:"Completa el formulario o contáctanos directamente — respondemos rápido.",
@@ -1116,13 +1268,13 @@ es:{
   form_email:"Correo electrónico", form_err_email:"Correo electrónico no válido.",
   form_date:"Fecha deseada *", form_err_date:"Por favor elige una fecha.",
   form_service:"Servicio deseado *",
-  chip1:"Corte clásico", chip2:"Arreglo de barba", chip3:"Afeitado tradicional", chip4:"Tratamiento facial",
+  chip1:"Corte de cabello / Afeitado facial", chip2:"Lavado (Shampoing)", chip3:"Tratamiento facial", chip4:"Proteína capilar", chip5:"Keratina capilar",
   form_msg:"Mensaje (opcional)", form_msg_ph:"Indica tus necesidades o disponibilidad...",
   form_submit:"Enviar solicitud",
   form_success_title:"¡Solicitud enviada!", form_success_text:"Gracias, te contactaremos muy pronto para confirmar tu cita.",
   foot_rights:"© 2026 Maison La Ville Haute. Todos los derechos reservados.",
   foot_credit:"Sitio creado por <strong>Herio Marketing Digital 360° Maroc</strong>",
-  fab_gps:"Cómo llegar", fab_call:"Llamar", fab_wa:"Chatear por WhatsApp",
+  fab_gps:"Cómo llegar", fab_call:"Llamar", fab_wa:"Chatear por WhatsApp", wa_menu_fr_label:"Francia", wa_menu_ma_label:"Marruecos", social_ig:"Instagram", social_tt:"TikTok", social_fb:"Facebook", social_yt:"YouTube",
   ai_name:"Asistente Ville Haute", ai_status:"En línea", ai_input_ph:"Escribe tu pregunta...",
   ai_greeting:"Hola 👋 Soy el asistente de Maison La Ville Haute. ¿En qué puedo ayudarte?",
   ai_q1:"¿Cuál es su horario?", ai_q2:"¿Dónde están ubicados?", ai_q3:"¿Cuáles son sus precios?", ai_q4:"Hablar con una persona",
@@ -1152,12 +1304,13 @@ en:{
   about_f1:"Certified hairdressers", about_f2:"Sterilized equipment", about_f3:"By appointment", about_f4:"Premium products",
   svc_eyebrow:"Our services", svc_title:"Care designed for every style",
   svc_sub:"A selection of classic and modern services, carried out with precision by our team.",
-  svc1_title:"Classic haircut", svc1_text:"Tailored haircut suited to face shape and personal style.",
-  svc2_title:"Beard trim", svc2_text:"Precise beard trimming and shaping, razor finish.",
-  svc3_title:"Traditional shave", svc3_text:"Straight-razor shave, Ville Haute style, with hot towel included.",
-  svc4_title:"Facial care", svc4_text:"Cleansing, exfoliation and mask for fresh, cared-for skin.",
+  svc1_title:"Haircut / Face Shave", svc1_text:"Tailored haircut and precise shave for a clean, sharp result.",
+  svc2_title:"Shampoo", svc2_text:"Careful wash with selected products for a healthy scalp.",
+  svc3_title:"Facial care", svc3_text:"Cleansing, exfoliation and mask for fresh, cared-for skin.",
+  svc4_title:"Hair protein", svc4_text:"Deep protein treatment to strengthen and reinforce the hair fibre.",
+  svc5_title:"Hair keratin", svc5_text:"Keratin treatment to smooth, nourish and restore shine to the hair.",
   gal_eyebrow:"Gallery", gal_title:"The Ville Haute world in pictures", gal_sub:"A glimpse of the salon, the atmosphere, and our team's precise craftsmanship.",
-  gal_cap1:"Inside the salon", gal_cap2:"Precision in every gesture", gal_cap3:"Careful finishing touches",
+  gal_cap1:"Inside the salon", gal_cap2:"Precision in every gesture", gal_cap3:"Careful finishing touches", gal_cap4:"Reception area", gal_cap5:"Styling stations", gal_cap6:"Our team at work", gal_cap7:"Salon atmosphere",
   rev_eyebrow:"Client reviews", rev_title:"What our clients say", rev_sub:"From 7 verified reviews", rev_src:"Google review",
   contact_eyebrow:"Contact", contact_title:"Book your slot",
   contact_sub:"Fill in the form or contact us directly — we reply quickly.",
@@ -1169,13 +1322,13 @@ en:{
   form_email:"Email", form_err_email:"Invalid email address.",
   form_date:"Preferred date *", form_err_date:"Please choose a date.",
   form_service:"Desired service *",
-  chip1:"Classic haircut", chip2:"Beard trim", chip3:"Traditional shave", chip4:"Facial care",
+  chip1:"Haircut / Face Shave", chip2:"Shampoo", chip3:"Facial care", chip4:"Hair protein", chip5:"Hair keratin",
   form_msg:"Message (optional)", form_msg_ph:"Tell us your needs or availability...",
   form_submit:"Send request",
   form_success_title:"Request sent!", form_success_text:"Thank you, we'll get back to you shortly to confirm your appointment.",
   foot_rights:"© 2026 Maison La Ville Haute. All rights reserved.",
   foot_credit:"Website created by <strong>Herio Marketing Digital 360° Maroc</strong>",
-  fab_gps:"Directions", fab_call:"Call", fab_wa:"Chat on WhatsApp",
+  fab_gps:"Directions", fab_call:"Call", fab_wa:"Chat on WhatsApp", wa_menu_fr_label:"France", wa_menu_ma_label:"Morocco", social_ig:"Instagram", social_tt:"TikTok", social_fb:"Facebook", social_yt:"YouTube",
   ai_name:"Ville Haute Assistant", ai_status:"Online", ai_input_ph:"Type your question...",
   ai_greeting:"Hello 👋 I'm the Maison La Ville Haute assistant. How can I help you?",
   ai_q1:"What are your opening hours?", ai_q2:"Where are you located?", ai_q3:"What are your prices?", ai_q4:"Talk to a human",
@@ -1205,12 +1358,13 @@ it:{
   about_f1:"Parrucchieri certificati", about_f2:"Strumenti sterilizzati", about_f3:"Su appuntamento", about_f4:"Prodotti premium",
   svc_eyebrow:"I nostri servizi", svc_title:"Trattamenti pensati per ogni stile",
   svc_sub:"Una selezione di servizi classici e moderni, eseguiti con precisione dal nostro team.",
-  svc1_title:"Taglio classico", svc1_text:"Taglio su misura adatto alla forma del viso e allo stile personale.",
-  svc2_title:"Rifinitura barba", svc2_text:"Rifinitura e sagomatura precisa della barba, finiture a rasoio.",
-  svc3_title:"Rasatura tradizionale", svc3_text:"Rasatura a mano libera stile Ville Haute, con asciugamano caldo incluso.",
-  svc4_title:"Trattamento viso", svc4_text:"Pulizia, esfoliazione e maschera per una pelle fresca e curata.",
+  svc1_title:"Taglio Capelli / Rasatura Viso", svc1_text:"Taglio su misura e rasatura di precisione per un risultato pulito e curato.",
+  svc2_title:"Shampoo", svc2_text:"Lavaggio curato con prodotti selezionati per la salute del cuoio capelluto.",
+  svc3_title:"Trattamento viso", svc3_text:"Pulizia, esfoliazione e maschera per una pelle fresca e curata.",
+  svc4_title:"Proteina capelli", svc4_text:"Trattamento proteico in profondità per rinforzare la fibra capillare.",
+  svc5_title:"Cheratina capelli", svc5_text:"Trattamento alla cheratina per lisciare, nutrire e ridare lucentezza ai capelli.",
   gal_eyebrow:"Galleria", gal_title:"L'universo Ville Haute in immagini", gal_sub:"Uno sguardo al salone, all'atmosfera e alla precisione del nostro team.",
-  gal_cap1:"L'interno del salone", gal_cap2:"Precisione in ogni gesto", gal_cap3:"Rifiniture curate",
+  gal_cap1:"L'interno del salone", gal_cap2:"Precisione in ogni gesto", gal_cap3:"Rifiniture curate", gal_cap4:"Area accoglienza", gal_cap5:"Postazioni di taglio", gal_cap6:"Il nostro team al lavoro", gal_cap7:"Atmosfera del salone",
   rev_eyebrow:"Recensioni clienti", rev_title:"Cosa dicono i nostri clienti", rev_sub:"Da 7 recensioni verificate", rev_src:"Recensione Google",
   contact_eyebrow:"Contatti", contact_title:"Prenota il tuo appuntamento",
   contact_sub:"Compila il modulo o contattaci direttamente — rispondiamo rapidamente.",
@@ -1222,13 +1376,13 @@ it:{
   form_email:"Email", form_err_email:"Indirizzo email non valido.",
   form_date:"Data desiderata *", form_err_date:"Scegli una data.",
   form_service:"Servizio desiderato *",
-  chip1:"Taglio classico", chip2:"Rifinitura barba", chip3:"Rasatura tradizionale", chip4:"Trattamento viso",
+  chip1:"Taglio Capelli / Rasatura Viso", chip2:"Shampoo", chip3:"Trattamento viso", chip4:"Proteina capelli", chip5:"Cheratina capelli",
   form_msg:"Messaggio (facoltativo)", form_msg_ph:"Indica le tue esigenze o disponibilità...",
   form_submit:"Invia richiesta",
   form_success_title:"Richiesta inviata!", form_success_text:"Grazie, ti ricontatteremo presto per confermare l'appuntamento.",
   foot_rights:"© 2026 Maison La Ville Haute. Tutti i diritti riservati.",
   foot_credit:"Sito creato da <strong>Herio Marketing Digital 360° Maroc</strong>",
-  fab_gps:"Indicazioni", fab_call:"Chiama", fab_wa:"Chatta su WhatsApp",
+  fab_gps:"Indicazioni", fab_call:"Chiama", fab_wa:"Chatta su WhatsApp", wa_menu_fr_label:"Francia", wa_menu_ma_label:"Marocco", social_ig:"Instagram", social_tt:"TikTok", social_fb:"Facebook", social_yt:"YouTube",
   ai_name:"Assistente Ville Haute", ai_status:"Online", ai_input_ph:"Scrivi la tua domanda...",
   ai_greeting:"Ciao 👋 Sono l'assistente di Maison La Ville Haute. Come posso aiutarti?",
   ai_q1:"Quali sono gli orari?", ai_q2:"Dove siete situati?", ai_q3:"Quali sono i prezzi?", ai_q4:"Parlare con una persona",
@@ -1432,256 +1586,4 @@ function setLanguage(lang){
    ============================================================ */
 const galItems = Array.from(document.querySelectorAll('.gal-item'));
 const lightbox = document.getElementById('lightbox');
-const lbImg = document.getElementById('lbImg');
-const lbCaption = document.getElementById('lbCaption');
-const lbCounter = document.getElementById('lbCounter');
-let lbIndex = 0;
-
-function openLightbox(idx){
-  lbIndex = idx;
-  updateLightbox();
-  lightbox.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox(){
-  lightbox.classList.remove('open');
-  document.body.style.overflow = '';
-}
-function updateLightbox(){
-  const item = galItems[lbIndex];
-  const img = item.querySelector('img');
-  const cap = item.querySelector('.gal-cap');
-  lbImg.src = img.src;
-  lbImg.alt = cap ? cap.textContent : '';
-  lbCaption.textContent = cap ? cap.textContent : '';
-  lbCounter.textContent = `${lbIndex + 1} / ${galItems.length}`;
-}
-function lbNext(){ lbIndex = (lbIndex + 1) % galItems.length; updateLightbox(); }
-function lbPrev(){ lbIndex = (lbIndex - 1 + galItems.length) % galItems.length; updateLightbox(); }
-
-galItems.forEach((item, i)=>{
-  item.addEventListener('click', ()=> openLightbox(i));
-});
-document.getElementById('lbClose').addEventListener('click', closeLightbox);
-document.getElementById('lbNext').addEventListener('click', lbNext);
-document.getElementById('lbPrev').addEventListener('click', lbPrev);
-lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
-document.addEventListener('keydown', (e)=>{
-  if(!lightbox.classList.contains('open')) return;
-  if(e.key === 'Escape') closeLightbox();
-  if(e.key === 'ArrowRight') lbNext();
-  if(e.key === 'ArrowLeft') lbPrev();
-});
-// touch swipe support
-let touchStartX = null;
-lightbox.addEventListener('touchstart', (e)=>{ touchStartX = e.changedTouches[0].clientX; }, {passive:true});
-lightbox.addEventListener('touchend', (e)=>{
-  if(touchStartX === null) return;
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  if(Math.abs(dx) > 40){ dx > 0 ? lbPrev() : lbNext(); }
-  touchStartX = null;
-}, {passive:true});
-
-/* ============================================================
-   FLOATING BUTTONS — WhatsApp / Call / GPS
-   ============================================================ */
-function updateWaLinks(){
-  const msg = encodeURIComponent(I18N[currentLang].wa_prefill);
-  const link = `https://wa.me/${CONFIG.whatsappNumber}?text=${msg}`;
-  document.getElementById('waFab').href = link;
-  document.getElementById('heroWaLink').href = link;
-}
-document.getElementById('callFab').href = `tel:${CONFIG.phoneNumber}`;
-document.getElementById('gpsFab').href = `https://www.google.com/maps/search/?api=1&query=${CONFIG.gpsQuery}`;
-
-/* ============================================================
-   HEADER SCROLL / MOBILE MENU
-   ============================================================ */
-/* ============================================================
-   HERO VIDEO — sound toggle
-   ============================================================ */
-const heroVideo = document.getElementById('heroVideo');
-const heroSoundBtn = document.getElementById('heroSoundBtn');
-const soundOff = document.getElementById('heroSoundIconOff');
-const soundOn = document.getElementById('heroSoundIconOn');
-if(heroVideo && heroSoundBtn){
-  heroSoundBtn.addEventListener('click', ()=>{
-    heroVideo.muted = !heroVideo.muted;
-    soundOff.style.display = heroVideo.muted ? 'block' : 'none';
-    soundOn.style.display = heroVideo.muted ? 'none' : 'block';
-  });
-}
-
-const header = document.getElementById('siteHeader');
-window.addEventListener('scroll',()=>{
-  header.classList.toggle('scrolled', window.scrollY > 30);
-});
-const mobileMenu = document.getElementById('mobileMenu');
-document.getElementById('burgerBtn').addEventListener('click',()=>mobileMenu.classList.add('open'));
-document.getElementById('mobileClose').addEventListener('click',()=>mobileMenu.classList.remove('open'));
-mobileMenu.addEventListener('click',(e)=>{ if(e.target === mobileMenu) mobileMenu.classList.remove('open'); });
-mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
-
-/* ============================================================
-   SERVICE CHIPS (form)
-   ============================================================ */
-document.querySelectorAll('#serviceChips .chip').forEach(chip=>{
-  chip.addEventListener('click',()=>{
-    document.querySelectorAll('#serviceChips .chip').forEach(c=>c.classList.remove('active'));
-    chip.classList.add('active');
-  });
-});
-
-/* ============================================================
-   BOOKING FORM VALIDATION
-   ============================================================ */
-const form = document.getElementById('bookingForm');
-form.addEventListener('submit',(e)=>{
-  e.preventDefault();
-  let valid = true;
-  const setErr = (name,isErr)=>{
-    const field = form.querySelector(`[data-field="${name}"]`);
-    field.classList.toggle('error', isErr);
-    if(isErr) valid = false;
-  };
-  const name = form.name.value.trim();
-  const phone = form.phone.value.trim();
-  const email = form.email.value.trim();
-  const date = form.date.value;
-
-  setErr('name', name.length < 2);
-  setErr('phone', !/^[\d+\s()-]{7,}$/.test(phone));
-  setErr('email', email.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
-  setErr('date', !date);
-
-  if(!valid) return;
-
-  const service = document.querySelector('#serviceChips .chip.active').textContent;
-  document.getElementById('formWrap').style.display = 'none';
-  document.getElementById('formSuccess').classList.add('show');
-
-  // Optional: also let the user send the same booking straight to WhatsApp
-  const waMsg = encodeURIComponent(`${I18N[currentLang].wa_prefill}\n${name} — ${phone} — ${service} — ${date}`);
-  window.__lastBookingWaLink = `https://wa.me/${CONFIG.whatsappNumber}?text=${waMsg}`;
-});
-
-/* ============================================================
-   AI AGENT (rule-based FAQ assistant -> WhatsApp handoff)
-   ============================================================ */
-const aiLauncher = document.getElementById('aiLauncher');
-const aiPanel = document.getElementById('aiPanel');
-const aiBody = document.getElementById('aiBody');
-const aiInput = document.getElementById('aiInput');
-let aiAsked = 0;
-
-aiLauncher.addEventListener('click',()=>{
-  aiPanel.classList.toggle('open');
-  if(aiPanel.classList.contains('open') && aiBody.children.length === 0) resetAIChat();
-});
-document.getElementById('aiClose').addEventListener('click',()=>aiPanel.classList.remove('open'));
-
-function addMsg(text, who){
-  const div = document.createElement('div');
-  div.className = 'msg ' + who;
-  div.textContent = text;
-  aiBody.appendChild(div);
-  aiBody.scrollTop = aiBody.scrollHeight;
-  return div;
-}
-
-function addQuickReplies(){
-  const dict = I18N[currentLang];
-  const wrap = document.createElement('div');
-  wrap.className = 'quick-replies';
-  const questions = [
-    {q:dict.ai_q1, a:dict.ai_a1},
-    {q:dict.ai_q2, a:dict.ai_a2},
-    {q:dict.ai_q3, a:dict.ai_a3}
-  ];
-  questions.forEach(item=>{
-    const b = document.createElement('button');
-    b.className = 'qr-btn';
-    b.textContent = item.q;
-    b.addEventListener('click',()=>{
-      addMsg(item.q,'user');
-      setTimeout(()=>{
-        addMsg(item.a,'bot');
-        aiAsked++;
-        showFinalStep();
-      },350);
-    });
-    wrap.appendChild(b);
-  });
-  const humanBtn = document.createElement('button');
-  humanBtn.className = 'qr-btn';
-  humanBtn.textContent = dict.ai_q4;
-  humanBtn.addEventListener('click', goToWhatsApp);
-  wrap.appendChild(humanBtn);
-  aiBody.appendChild(wrap);
-  aiBody.scrollTop = aiBody.scrollHeight;
-}
-
-function showFinalStep(){
-  const dict = I18N[currentLang];
-  const existing = aiBody.querySelector('.wa-final');
-  if(existing) return;
-  setTimeout(()=>{
-    addMsg(dict.ai_final,'bot');
-    const wrap = document.createElement('div');
-    wrap.className = 'quick-replies';
-    const waBtn = document.createElement('button');
-    waBtn.className = 'qr-btn wa-final';
-    waBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C9.37 3 3.98 8.39 3.98 15.06c0 2.24.6 4.33 1.66 6.13L3 29l7.99-2.6a12.03 12.03 0 0 0 5.05 1.1h.01c6.67 0 12.06-5.4 12.06-12.06C28.11 8.39 22.72 3 16.05 3z"/></svg> ${dict.ai_wa_btn}`;
-    waBtn.addEventListener('click', goToWhatsApp);
-    wrap.appendChild(waBtn);
-    aiBody.appendChild(wrap);
-    aiBody.scrollTop = aiBody.scrollHeight;
-  },500);
-}
-
-function goToWhatsApp(){
-  updateWaLinks();
-  window.open(document.getElementById('waFab').href, '_blank');
-}
-
-function resetAIChat(){
-  aiAsked = 0;
-  aiBody.innerHTML = '';
-  const dict = I18N[currentLang];
-  addMsg(dict.ai_greeting,'bot');
-  addQuickReplies();
-}
-
-document.getElementById('aiSend').addEventListener('click', sendAiMessage);
-aiInput.addEventListener('keydown',(e)=>{ if(e.key === 'Enter') sendAiMessage(); });
-
-function sendAiMessage(){
-  const val = aiInput.value.trim();
-  if(!val) return;
-  addMsg(val,'user');
-  aiInput.value = '';
-  const dict = I18N[currentLang];
-  setTimeout(()=>{
-    const lower = val.toLowerCase();
-    let answered = false;
-    const kw = {
-      hours:['horaire','heure','hour','ora','ساعات','دوام'],
-      loc:['adresse','où','ubicad','locat','indirizzo','عنوان','أين'],
-      price:['prix','tarif','precio','price','prezzo','ثمن','سعر']
-    };
-    if(kw.hours.some(k=>lower.includes(k))){ addMsg(dict.ai_a1,'bot'); answered = true; }
-    else if(kw.loc.some(k=>lower.includes(k))){ addMsg(dict.ai_a2,'bot'); answered = true; }
-    else if(kw.price.some(k=>lower.includes(k))){ addMsg(dict.ai_a3,'bot'); answered = true; }
-    else { addMsg(dict.ai_fallback,'bot'); }
-    aiAsked++;
-    showFinalStep();
-  },450);
-}
-
-/* ============================================================
-   INIT
-   ============================================================ */
-setLanguage('fr');
-</script>
-</body>
-</html>
+cons
