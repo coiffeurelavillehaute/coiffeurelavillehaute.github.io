@@ -426,13 +426,16 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.55);padding:36px 0;bo
 .foot-credit strong{color:rgba(255,255,255,.65);font-weight:600}
 
 /* ===== floating action buttons ===== */
-.fab-stack{position:fixed;right:22px;bottom:22px;z-index:900;display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+.fab-stack{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:950;display:flex;flex-direction:column;gap:14px;align-items:flex-end;pointer-events:none}
+.fab-stack > *{pointer-events:auto}
 html[dir="rtl"] .fab-stack{right:auto;left:22px;align-items:flex-start}
 .fab{
   width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   box-shadow:0 10px 26px rgba(0,0,0,.24);position:relative;color:var(--white);transition:transform .2s;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:pointer;
 }
 .fab:hover{transform:scale(1.08)}
+.fab:active{transform:scale(.94)}
 .fab-tooltip{
   position:absolute;right:70px;top:50%;transform:translateY(-50%);
   background:var(--navy-deep);color:var(--white);font-size:12px;font-weight:500;
@@ -442,16 +445,21 @@ html[dir="rtl"] .fab-tooltip{right:auto;left:70px}
 .fab:hover .fab-tooltip{opacity:1}
 .fab-wa{background:#25D366}
 .fab-wa .ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid #25D366;animation:ring-pulse 2.2s ease-out infinite}
-.fab-wa-wrap{position:relative}
+.fab-wa-wrap{position:relative;list-style:none}
+.fab-wa-wrap summary{list-style:none;cursor:pointer}
+.fab-wa-wrap summary::-webkit-details-marker,
+.fab-wa-wrap summary::marker{display:none;content:""}
 .wa-menu{
   position:absolute;bottom:0;right:70px;
   background:var(--white);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.22);
-  border:1px solid var(--line);padding:8px;display:none;flex-direction:column;gap:2px;min-width:220px;
+  border:1px solid var(--line);padding:8px;display:flex;flex-direction:column;gap:2px;min-width:220px;
+  animation:pop-in .18s ease;
 }
+@keyframes pop-in{from{opacity:0;transform:translateY(6px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 html[dir="rtl"] .wa-menu{right:auto;left:70px}
-.wa-menu.open{display:flex}
 .wa-menu-item{
   display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;transition:background .15s;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:pointer;
 }
 .wa-menu-item:hover{background:var(--ivory)}
 .wa-flag{font-size:20px;flex-shrink:0}
@@ -464,30 +472,33 @@ html[dir="rtl"] .wa-menu{right:auto;left:70px}
 }
 
 /* social speed-dial */
-.social-fab-wrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+.social-fab-wrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;gap:14px;list-style:none}
+.social-fab-wrap summary{list-style:none;cursor:pointer}
+.social-fab-wrap summary::-webkit-details-marker,
+.social-fab-wrap summary::marker{display:none;content:""}
 html[dir="rtl"] .social-fab-wrap{align-items:flex-start}
 .fab-social{
   width:52px;height:52px;background:linear-gradient(135deg,#405de6 0%,#5851db 20%,#833ab4 40%,#c13584 60%,#e1306c 80%,#fd1d1d 100%);
   transition:transform .3s,box-shadow .3s;
 }
-.fab-social.open{transform:rotate(180deg)}
+.social-fab-wrap[open] .fab-social{transform:rotate(180deg)}
 .fab-social svg{width:22px;height:22px}
+.social-ico-close{display:none}
+.social-fab-wrap[open] .social-ico-open{display:none}
+.social-fab-wrap[open] .social-ico-close{display:block}
 .social-menu{
   display:flex;flex-direction:column;align-items:flex-end;gap:12px;
-  max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .25s;
 }
 html[dir="rtl"] .social-menu{align-items:flex-start}
-.social-menu.open{max-height:400px;opacity:1;pointer-events:auto;overflow:visible}
 .social-item{
   width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   color:var(--white);box-shadow:0 8px 20px rgba(0,0,0,.22);position:relative;flex-shrink:0;
-  opacity:0;transform:translateY(14px) scale(.7);transition:transform .35s cubic-bezier(.2,.9,.3,1.3),opacity .3s;
-  transition-delay:var(--d,0s);
+  opacity:0;transform:translateY(14px) scale(.7);animation:social-in .35s cubic-bezier(.2,.9,.3,1.3) forwards;
+  animation-delay:var(--d,0s);touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:pointer;
 }
-.social-menu.open .social-item{opacity:1;transform:translateY(0) scale(1)}
+@keyframes social-in{to{opacity:1;transform:translateY(0) scale(1)}}
 .social-item svg{width:22px;height:22px}
 .social-item:hover{transform:translateY(-3px) scale(1.08)}
-.social-menu.open .social-item:hover{transform:translateY(-3px) scale(1.08)}
 .si-ig{background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
 .si-tt{background:#010101}
 .si-tt svg{filter:drop-shadow(1px 1px 0 #25F4EE) drop-shadow(-1px -1px 0 #FE2C55)}
@@ -509,18 +520,20 @@ html[dir="rtl"] .social-item .fab-tooltip{right:auto;left:60px}
 
 /* ===== AI agent widget ===== */
 .ai-launcher{
-  position:fixed;left:22px;bottom:22px;z-index:900;width:60px;height:60px;border-radius:50%;
+  position:fixed;left:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:950;width:60px;height:60px;border-radius:50%;
   background:linear-gradient(135deg,var(--navy),var(--red));color:var(--white);
   display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.24);
   transition:transform .2s;
 }
 html[dir="rtl"] .ai-launcher{left:auto;right:22px}
+.ai-launcher{touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:pointer}
 .ai-launcher:hover{transform:scale(1.08)}
+.ai-launcher:active{transform:scale(.94)}
 .ai-launcher svg{width:26px;height:26px}
 .ai-launcher .pulse-dot{position:absolute;top:4px;right:4px;width:12px;height:12px;border-radius:50%;background:#4ade80;border:2px solid var(--white)}
 
 .ai-panel{
-  position:fixed;left:22px;bottom:94px;z-index:901;width:340px;max-width:calc(100vw - 44px);
+  position:fixed;left:22px;bottom:calc(94px + env(safe-area-inset-bottom));z-index:951;width:340px;max-width:calc(100vw - 44px);
   background:var(--white);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.3);
   display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line);
   max-height:70vh;
@@ -577,10 +590,10 @@ html[dir="rtl"] .qr-btn{text-align:right}
   .svc-grid{grid-template-columns:1fr}
   .section{padding:70px 0}
   .hero{padding:150px 0 80px}
-  .ai-panel{width:calc(100vw - 32px);left:16px;bottom:84px}
+  .ai-panel{width:calc(100vw - 32px);left:16px;bottom:calc(80px + env(safe-area-inset-bottom))}
   html[dir="rtl"] .ai-panel{right:16px}
-  .fab-stack{right:14px;bottom:14px}
-  .ai-launcher{left:14px;bottom:14px}
+  .fab-stack{right:14px;bottom:calc(14px + env(safe-area-inset-bottom))}
+  .ai-launcher{left:14px;bottom:calc(14px + env(safe-area-inset-bottom))}
   html[dir="rtl"] .ai-launcher{right:14px}
   .gal-grid{grid-template-columns:1fr;grid-auto-rows:220px}
   .gal-item.gal-big{grid-column:span 1}
@@ -1033,21 +1046,21 @@ html[dir="rtl"] .mobile-menu .sheet{right:auto;left:0}
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
     <span class="fab-tooltip" data-i18n="fab_call">Appeler</span>
   </a>
-  <div class="fab-wa-wrap">
-    <button class="fab fab-wa" id="waFabBtn" aria-haspopup="true" aria-expanded="false">
+  <details class="fab-wa-wrap">
+    <summary class="fab fab-wa" aria-haspopup="true">
       <span class="ring" aria-hidden="true"></span>
       <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C9.37 3 3.98 8.39 3.98 15.06c0 2.24.6 4.33 1.66 6.13L3 29l7.99-2.6a12.03 12.03 0 0 0 5.05 1.1h.01c6.67 0 12.06-5.4 12.06-12.06C28.11 8.39 22.72 3 16.05 3zM16.05 25.5c-1.58 0-3.13-.42-4.48-1.22l-.32-.19-4.74 1.54 1.55-4.62-.21-.34a9.92 9.92 0 0 1-1.53-5.3c0-5.5 4.48-9.98 9.98-9.98 5.5 0 9.98 4.48 9.98 9.98 0 5.5-4.48 9.98-9.98 9.98zM21.35 17.75c-.29-.14-1.71-.84-1.97-.94-.26-.1-.46-.14-.65.15-.19.29-.75.94-.92 1.14-.17.19-.34.22-.63.07-.29-.14-1.2-.44-2.29-1.41-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.03 2.82 1.17 3.01.14.19 2.03 3.1 4.92 4.35.69.3 1.22.48 1.64.61.69.22 1.31.19 1.81.11.55-.08 1.71-.7 1.95-1.37.24-.68.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34z"/></svg>
       <span class="fab-tooltip" data-i18n="fab_wa">Discuter sur WhatsApp</span>
-    </button>
-    <div class="wa-menu" id="waMenu">
-      <a id="waLinkFr" href="#" target="_blank" rel="noopener" class="wa-menu-item">
+    </summary>
+    <div class="wa-menu">
+      <a id="waLinkFr" href="https://wa.me/33758972684?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous%20chez%20Maison%20La%20Ville%20Haute%20(K%C3%A9nitra)." target="_blank" rel="noopener" class="wa-menu-item">
         <span class="wa-flag">🇫🇷</span>
         <span class="wa-menu-text">
           <strong data-i18n="wa_menu_fr_label">France</strong>
           <span>+33 7 58 97 26 84</span>
         </span>
       </a>
-      <a id="waLinkMa" href="#" target="_blank" rel="noopener" class="wa-menu-item">
+      <a id="waLinkMa" href="https://wa.me/212614899783?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous%20chez%20Maison%20La%20Ville%20Haute%20(K%C3%A9nitra)." target="_blank" rel="noopener" class="wa-menu-item">
         <span class="wa-flag">🇲🇦</span>
         <span class="wa-menu-text">
           <strong data-i18n="wa_menu_ma_label">Maroc</strong>
@@ -1055,10 +1068,14 @@ html[dir="rtl"] .mobile-menu .sheet{right:auto;left:0}
         </span>
       </a>
     </div>
-  </div>
+  </details>
 
-  <div class="social-fab-wrap">
-    <div class="social-menu" id="socialMenu">
+  <details class="social-fab-wrap">
+    <summary class="fab fab-social" aria-haspopup="true" aria-label="social links">
+      <svg class="social-ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
+      <svg class="social-ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </summary>
+    <div class="social-menu">
       <a class="social-item si-ig" href="https://www.instagram.com/mostafasami20255?utm_source=qr&igsi=MWUyMThlZ3RraGltYg==" target="_blank" rel="noopener" style="--d:0s">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
         <span class="fab-tooltip" data-i18n="social_ig">Instagram</span>
@@ -1076,12 +1093,9 @@ html[dir="rtl"] .mobile-menu .sheet{right:auto;left:0}
         <span class="fab-tooltip" data-i18n="social_yt">YouTube</span>
       </a>
     </div>
-    <button class="fab fab-social" id="socialToggle" aria-haspopup="true" aria-expanded="false" aria-label="social links">
-      <svg id="socialIconOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
-      <svg id="socialIconClose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="display:none"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-  </div>
+  </details>
 </div>
+
 
 <!-- ============ AI AGENT WIDGET ============ -->
 <button class="ai-launcher" id="aiLauncher" aria-label="AI assistant">
@@ -1538,52 +1552,15 @@ const langBtnFlag = document.getElementById('langBtnFlag');
 const langBtnLabel = document.getElementById('langBtnLabel');
 const FLAGS = {fr:"🇫🇷",ar:"🇲🇦",es:"🇪🇸",en:"🇬🇧",it:"🇮🇹"};
 
-langBtn.addEventListener('click',(e)=>{
-  e.stopPropagation();
-  langMenu.classList.toggle('open');
-  langBtn.setAttribute('aria-expanded', langMenu.classList.contains('open'));
-});
-document.addEventListener('click',()=>langMenu.classList.remove('open'));
-
-langMenu.querySelectorAll('button').forEach(btn=>{
-  btn.addEventListener('click',(e)=>{
-    e.stopPropagation();
-    setLanguage(btn.dataset.lang);
-    langMenu.classList.remove('open');
-  });
-});
-
-function setLanguage(lang){
-  currentLang = lang;
-  const dict = I18N[lang];
-  document.documentElement.lang = lang;
-  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const key = el.getAttribute('data-i18n');
-    if(dict[key] !== undefined) el.textContent = dict[key];
-  });
-  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
-    const key = el.getAttribute('data-i18n-html');
-    if(dict[key] !== undefined) el.innerHTML = dict[key];
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
-    const key = el.getAttribute('data-i18n-placeholder');
-    if(dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
-  });
-
-  langBtnFlag.textContent = FLAGS[lang];
-  langBtnLabel.textContent = lang.toUpperCase();
-  langMenu.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.lang === lang));
-
-  renderReviews(lang);
-  updateWaLinks();
-  resetAIChat();
-}
-
-/* ============================================================
-   GALLERY — advanced lightbox (keyboard, swipe, counter)
-   ============================================================ */
-const galItems = Array.from(document.querySelectorAll('.gal-item'));
-const lightbox = document.getElementById('lightbox');
-cons
+/* close every floating popover — called before opening any of them.
+   WhatsApp / social use native <details>, the browser closes other
+   <details> automatically only within the same "name" group, so we
+   close them explicitly here too for a tidy exclusive behaviour. */
+function closeAllFloatingMenus(except){
+  if(except !== 'lang') langMenu.classList.remove('open');
+  if(except !== 'wa'){
+    const waEl = document.querySelector('.fab-wa-wrap');
+    if(waEl) waEl.removeAttribute('open');
+  }
+  if(except !== 'social'){
+  
