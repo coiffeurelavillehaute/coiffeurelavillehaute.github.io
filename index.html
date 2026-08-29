@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Maison La Ville Haute — Kénitra</title>
+<link rel="icon" type="image/png" href="https://i.imgur.com/A5vVqGu.png">
+<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/A5vVqGu.png">
+<link rel="apple-touch-icon" href="https://i.imgur.com/A5vVqGu.png">
+<meta name="description" content="Maison La Ville Haute Kénitra — Salon de coiffure et barbier haut de gamme à Kénitra, Maroc.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;900&family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#2647a8;
+  --navy-deep:#132c6e;
+  --red:#e85a2a;
+  --red-deep:#c8431a;
+  --white:#ffffff;
+  --gold:#c7ccd4;
+  --star-gold:#e0a929;
+  --ivory:#f7f4ee;
+  --ink:#141414;
+  --ink-soft:#4a4f57;
+  --line:rgba(38,71,168,.14);
+  --radius:2px;
+  --shadow:0 18px 45px rgba(19,44,110,.18);
+  --ff-display:'Playfair Display',serif;
+  --ff-body:'Poppins',sans-serif;
+  --ff-ar:'Amiri',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--ff-body);
+  color:var(--ink);
+  background:var(--ivory);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+html[dir="rtl"] body{font-family:var(--ff-ar),var(--ff-body)}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+ul{list-style:none}
+.container{max-width:1180px;margin:0 auto;padding:0 28px}
+.eyebrow{
+  font-size:12px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--red);font-weight:600;display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--gold)}
+html[dir="rtl"] .eyebrow::before{content:none}
+html[dir="rtl"] .eyebrow::after{content:"";width:26px;height:2px;background:var(--gold)}
+h1,h2,h3{font-family:var(--ff-display);font-weight:700;letter-spacing:.01em;color:var(--navy-deep)}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3{font-family:var(--ff-ar),var(--ff-display)}
+.section{padding:96px 0}
+.section-head{max-width:640px;margin-bottom:56px}
+.section-head h2{font-size:clamp(28px,4vw,42px);margin-top:12px;line-height:1.15}
+.section-head p{margin-top:16px;color:var(--ink-soft);font-size:16px}
+
+/* ===== barber-pole signature stripe ===== */
+.pole-divider{
+  height:10px;width:100%;
+  background:repeating-linear-gradient(45deg,var(--red) 0 22px,var(--white) 22px 44px,var(--navy) 44px 66px);
+  background-size:200% 100%;
+  animation:pole-scroll 6s linear infinite;
+}
+@keyframes pole-scroll{to{background-position:-93px 0}}
+@media (prefers-reduced-motion:reduce){.pole-divider{animation:none}}
+
+/* ===== header / nav ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  background:rgba(247,244,238,.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s;
+}
+header.scrolled{box-shadow:0 6px 24px rgba(19,44,110,.08)}
+.nav-row{display:flex;align-items:center;justify-content:space-between;height:82px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{
+  width:48px;height:48px;flex-shrink:0;object-fit:contain;
+}
+.brand-mark{
+  width:44px;height:44px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--red) 0 33%,var(--white) 33% 66%,var(--navy) 66% 100%);
+  border:2px solid var(--gold);
+  animation:pole-spin 5s linear infinite;
+  flex-shrink:0;
+}
+@media (prefers-reduced-motion:reduce){.brand-mark{animation:none}}
+@keyframes pole-spin{to{transform:rotate(360deg)}}
+.brand-text{display:flex;flex-direction:column;line-height:1.1}
+.brand-text strong{font-family:var(--ff-display);font-size:17px;color:var(--navy-deep);letter-spacing:.02em}
+.brand-text span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-top:3px}
+
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{
+  font-size:13.5px;font-weight:500;letter-spacing:.03em;color:var(--navy-deep);
+  position:relative;padding:6px 0;
+}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--red);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+
+.nav-right{display:flex;align-items:center;gap:16px}
+.lang-switch{position:relative}
+.lang-btn{
+  display:flex;align-items:center;gap:8px;padding:9px 14px;
+  border:1px solid var(--line);border-radius:30px;background:var(--white);
+  font-size:13px;font-weight:600;color:var(--navy-deep);
+}
+.lang-btn .flag{font-size:16px}
+.lang-menu{
+  position:absolute;top:calc(100% + 10px);right:0;
+  background:var(--white);border-radius:10px;box-shadow:var(--shadow);
+  padding:8px;min-width:200px;display:none;flex-direction:column;gap:2px;
+  border:1px solid var(--line);
+}
+html[dir="rtl"] .lang-menu{right:auto;left:0}
+.lang-menu.open{display:flex}
+.lang-menu button{
+  display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:7px;
+  font-size:13.5px;font-weight:500;color:var(--ink);width:100%;text-align:left;
+}
+html[dir="rtl"] .lang-menu button{text-align:right}
+.lang-menu button:hover{background:var(--ivory)}
+.lang-menu button.active{background:var(--navy);color:var(--white)}
+.lang-menu .flag{font-size:18px;width:22px;text-align:center}
+
+.nav-cta{
+  padding:11px 22px;border-radius:30px;background:var(--navy);color:var(--white)!important;
+  font-size:13px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:8px;
+  transition:background .2s;
+}
+.nav-cta:hover{background:var(--red)}
+.burger{display:none;flex-direction:column;gap:5px;width:26px}
+.burger span{height:2px;background:var(--navy-deep);border-radius:2px}
+
+/* ===== hero ===== */
+.hero{
+  position:relative;padding:170px 0 110px;
+  background:var(--navy-deep);
+  overflow:hidden;
+  color:var(--white);
+}
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+  opacity:.55;
+}
+.hero-video-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(180deg, rgba(7,16,40,.55) 0%, rgba(7,16,40,.55) 100%),
+    radial-gradient(ellipse at top right, rgba(232,90,42,.22), transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(19,44,110,.35), transparent 55%);
+}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.hero-sound-btn{
+  position:absolute;z-index:3;bottom:24px;right:28px;
+  width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px);color:var(--white);
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+html[dir="rtl"] .hero-sound-btn{right:auto;left:28px}
+.hero-sound-btn:hover{background:rgba(255,255,255,.25)}
+.hero-sound-btn svg{width:18px;height:18px}
+.hero h1{font-size:clamp(38px,5.4vw,64px);line-height:1.05;margin:18px 0 22px;color:var(--white)}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p.lead{font-size:17px;color:rgba(255,255,255,.8);max-width:480px;margin-bottom:34px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:30px;
+  font-size:14px;font-weight:600;letter-spacing:.02em;transition:transform .2s,box-shadow .2s;
+}
+.btn-primary{background:var(--red);color:var(--white)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(232,90,42,.35)}
+.btn-outline{border:1.5px solid rgba(255,255,255,.6);color:var(--white)}
+.btn-outline:hover{background:var(--white);color:var(--navy-deep);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:36px}
+.hero-stats div strong{font-family:var(--ff-display);font-size:26px;color:var(--white);display:block}
+.hero-stats div span{font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.03em}
+
+.hero-visual{position:relative}
+.hero-card{
+  background:var(--navy);border-radius:14px;padding:38px;position:relative;overflow:hidden;
+  box-shadow:var(--shadow);color:var(--white);
+}
+.hero-card::before{
+  content:"";position:absolute;top:-40%;right:-30%;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,90,42,.5),transparent 70%);
+}
+.hero-card .pole-mini{
+  width:100%;height:120px;border-radius:8px;margin-bottom:24px;
+  background:repeating-linear-gradient(135deg,var(--red) 0 16px,var(--white) 16px 32px,var(--navy-deep) 32px 48px);
+  background-size:140% 100%;animation:pole-scroll 4s linear infinite;
+  position:relative;z-index:1;
+}
+.hero-card h3{color:var(--white);font-size:20px;margin-bottom:10px;position:relative;z-index:1}
+.hero-card p{color:rgba(255,255,255,.75);font-size:14px;position:relative;z-index:1}
+.hero-card .badge{
+  display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:8px 16px;
+  border-radius:20px;background:rgba(255,255,255,.1);font-size:12px;font-weight:600;
+  border:1px solid rgba(255,255,255,.2);position:relative;z-index:1;
+}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.25)}
+
+/* ===== about ===== */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.about-visual{
+  aspect-ratio:4/5;border-radius:10px;background:
+    linear-gradient(160deg,var(--navy) 0%, var(--navy-deep) 55%, var(--red-deep) 130%);
+  position:relative;overflow:hidden;
+}
+.about-visual .stripe{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 30px,transparent 30px 60px);z-index:1}
+.about-visual .about-photo{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+}
+.about-visual .photo-fade{
+  position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg, rgba(19,44,110,.05) 0%, rgba(19,44,110,.15) 45%, rgba(19,44,110,.92) 100%);
+}
+.about-visual .init{
+  position:absolute;bottom:26px;left:26px;right:26px;color:var(--white);z-index:3;
+}
+.about-visual .init strong{font-family:var(--ff-display);font-size:22px;display:block;margin-bottom:6px}
+.about-visual .init span{font-size:12.5px;color:rgba(255,255,255,.75)}
+.about-copy p{color:var(--ink-soft);margin-bottom:18px;font-size:15.5px}
+.feature-list{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.feature-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--navy-deep);font-weight:500}
+.feature-list .ic{
+  width:32px;height:32px;border-radius:50%;background:var(--ivory);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--red);font-size:15px;
+}
+
+/* ===== services ===== */
+.services{background:var(--ivory)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.svc-card{
+  background:var(--white);border:1px solid var(--line);border-radius:10px;padding:30px 26px;
+  transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;
+}
+.svc-card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.svc-card:hover::after{transform:scaleY(1)}
+.svc-ic{width:46px;height:46px;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:18px}
+.svc-card h3{font-size:17px;margin-bottom:8px}
+.svc-card p{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px}
+.svc-card .price{font-family:var(--ff-display);color:var(--red);font-weight:700;font-size:15px}
+
+/* ===== gallery ===== */
+.gallery{background:var(--ivory)}
+.gal-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:16px;
+}
+.gal-item{
+  position:relative;overflow:hidden;border-radius:12px;cursor:pointer;
+  background:var(--navy-deep);box-shadow:0 4px 18px rgba(19,44,110,.12);
+}
+.gal-item.gal-big{grid-column:span 2;grid-row:span 2}
+.gal-item:nth-child(2){grid-column:span 2}
+.gal-item:nth-child(3){grid-column:span 2}
+.gal-item img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .5s;
+}
+.gal-item:hover img{transform:scale(1.08);filter:brightness(.75)}
+.gal-item figcaption{
+  position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-between;
+  padding:18px;background:linear-gradient(to top,rgba(11,20,45,.72) 0%,rgba(11,20,45,0) 55%);
+  opacity:0;transition:opacity .4s;
+}
+.gal-item:hover figcaption{opacity:1}
+.gal-cap{color:var(--white);font-size:13.5px;font-weight:600;letter-spacing:.02em}
+.gal-zoom{
+  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;color:var(--white);flex-shrink:0;
+  border:1px solid rgba(255,255,255,.3);
+}
+.gal-zoom svg{width:16px;height:16px}
+
+/* lightbox */
+.lightbox{
+  position:fixed;inset:0;background:rgba(7,18,45,.94);z-index:1000;
+  display:none;align-items:center;justify-content:center;padding:60px 20px;
+  backdrop-filter:blur(6px);
+}
+.lightbox.open{display:flex}
+.lb-stage{position:relative;max-width:900px;width:100%;text-align:center}
+.lb-stage img{
+  max-width:100%;max-height:70vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5);
+  animation:lb-pop .35s ease;
+}
+@keyframes lb-pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.lb-caption{color:var(--white);margin-top:16px;font-size:14px;font-weight:500;letter-spacing:.02em}
+.lb-counter{color:rgba(255,255,255,.5);font-size:12px;margin-top:6px;letter-spacing:.05em}
+.lb-close{
+  position:absolute;top:22px;right:26px;color:var(--white);font-size:32px;line-height:1;
+  width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.lb-close:hover{background:rgba(255,255,255,.18)}
+.lb-nav{
+  position:absolute;top:50%;transform:translateY(-50%);color:var(--white);
+  width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;
+}
+.lb-nav:hover{background:rgba(255,255,255,.2)}
+.lb-nav svg{width:20px;height:20px}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+@media (max-width:700px){
+  .lb-prev{left:6px}.lb-next{right:6px}
+  .lb-close{top:12px;right:12px}
+}
+
+/* ===== reviews ===== */
+.reviews{background:var(--white)}
+.rev-top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.rev-score{display:flex;align-items:center;gap:16px}
+.rev-score strong{font-family:var(--ff-display);font-size:44px;color:var(--navy-deep)}
+.rev-score .stars{color:var(--star-gold);font-size:16px;letter-spacing:2px}
+.rev-score .sub{font-size:12.5px;color:var(--ink-soft)}
+.rev-track-wrap{position:relative;margin-top:40px}
+.rev-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:none}
+.rev-track::-webkit-scrollbar{display:none}
+.rev-card{
+  scroll-snap-align:start;min-width:300px;max-width:300px;background:var(--ivory);
+  border-radius:12px;padding:26px;border:1px solid var(--line);display:flex;flex-direction:column;gap:14px;
+}
+.rev-head{display:flex;align-items:center;gap:12px}
+.avatar{
+  width:50px;height:50px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;position:relative;
+  box-shadow:0 0 0 2px var(--white),0 2px 6px rgba(19,44,110,.18);
+}
+.avatar svg{width:100%;height:100%;border-radius:50%}
+.rev-name-row{display:flex;align-items:center;gap:5px}
+.rev-name{font-weight:600;font-size:14.5px;color:var(--navy-deep)}
+.rev-verified{
+  width:14px;height:14px;border-radius:50%;background:#1a9cf0;color:var(--white);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.rev-verified svg{width:9px;height:9px}
+.rev-meta{font-size:11.5px;color:var(--ink-soft)}
+.rev-source{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.rev-stars{color:var(--star-gold);font-size:13px;letter-spacing:1px}
+.rev-google{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--ink-soft);font-weight:500}
+.rev-google svg{width:13px;height:13px;flex-shrink:0}
+.rev-date{font-size:11px;color:var(--ink-soft);opacity:.8}
+.rev-text{font-size:13.8px;color:var(--ink-soft);line-height:1.65}
+.rev-nav{display:flex;gap:10px;justify-content:center;margin-top:22px}
+.rev-nav button{
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--white);
+  display:flex;align-items:center;justify-content:center;color:var(--navy-deep);transition:.2s;
+}
+.rev-nav button:hover{background:var(--navy);color:var(--white)}
+
+/* ===== contact / form ===== */
+.contact{background:var(--navy-deep);color:var(--white);position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;top:-20%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,90,42,.18),transparent 70%)}
+.contact .section-head p{color:rgba(255,255,255,.65)}
+.contact .eyebrow{color:var(--gold)}
+.contact .section-head h2{color:var(--white)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;position:relative;z-index:1}
+.info-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:30px;
+  margin-bottom:18px;
+}
+.info-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+.info-row:last-child{margin-bottom:0}
+.info-ic{
+  width:38px;height:38px;border-radius:50%;background:var(--red);color:var(--white);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;
+}
+.info-row strong{display:block;font-size:14px;margin-bottom:3px}
+.info-row span,.info-row a{font-size:13.5px;color:rgba(255,255,255,.65)}
+.map-embed{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12);height:180px}
+.map-embed iframe{width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+
+.form-card{background:var(--white);border-radius:14px;padding:38px;color:var(--ink);box-shadow:var(--shadow)}
+.form-card h3{font-size:20px;color:var(--navy-deep);margin-bottom:6px}
+.form-card>p{font-size:13.5px;color:var(--ink-soft);margin-bottom:26px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:12.5px;font-weight:600;color:var(--navy-deep);margin-bottom:7px;letter-spacing:.02em}
+.field input,.field select,.field textarea{
+  width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:8px;
+  font-family:inherit;font-size:14px;background:var(--ivory);color:var(--ink);transition:border-color .2s,background .2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red);background:var(--white)}
+.field textarea{resize:vertical;min-height:90px}
+.field.error input,.field.error select,.field.error textarea{border-color:var(--red)}
+.field .err-msg{font-size:11.5px;color:var(--red);margin-top:5px;display:none;font-weight:500}
+.field.error .err-msg{display:block}
+.chip-group{display:flex;gap:10px;flex-wrap:wrap}
+.chip{
+  padding:9px 16px;border:1.5px solid var(--line);border-radius:24px;font-size:12.5px;font-weight:500;
+  color:var(--ink-soft);transition:.2s;
+}
+.chip.active{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.submit-btn{
+  width:100%;padding:16px;border-radius:8px;background:var(--red);color:var(--white);
+  font-weight:600;font-size:14.5px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:background .2s,transform .2s;
+}
+.submit-btn:hover{background:var(--navy);transform:translateY(-1px)}
+.form-success{
+  display:none;text-align:center;padding:40px 10px;
+}
+.form-success.show{display:block}
+.form-success .ic{
+  width:64px;height:64px;border-radius:50%;background:#e8f7ee;color:#22a55c;
+  display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 18px;
+}
+.form-success h4{color:var(--navy-deep);margin-bottom:8px}
+.form-success p{color:var(--ink-soft);font-size:14px}
+
+/* ===== footer ===== */
+footer{background:var(--navy-deep);color:rgba(255,255,255,.55);padding:36px 0;border-top:1px solid rgba(255,255,255,.08)}
+.foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:12.5px}
+.foot-row .fbrand{display:flex;align-items:center;gap:10px;color:var(--white);font-weight:600}
+.foot-credit{width:100%;text-align:center;font-size:11px;color:rgba(255,255,255,.4);margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}
+.foot-credit strong{color:rgba(255,255,255,.65);font-weight:600}
+
+/* ===== floating action buttons ===== */
+.fab-stack{position:fixed;right:22px;bottom:22px;z-index:900;display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+html[dir="rtl"] .fab-stack{right:auto;left:22px;align-items:flex-start}
+.fab{
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px rgba(0,0,0,.24);position:relative;color:var(--white);transition:transform .2s;
+}
+.fab:hover{transform:scale(1.08)}
+.fab-tooltip{
+  position:absolute;right:70px;top:50%;transform:translateY(-50%);
+  background:var(--navy-deep);color:var(--white);font-size:12px;font-weight:500;
+  padding:8px 12px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;
+}
+html[dir="rtl"] .fab-tooltip{right:auto;left:70px}
+.fab:hover .fab-tooltip{opacity:1}
+.fab-wa{background:#25D366}
+.fab-wa .ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid #25D366;animation:ring-pulse 2.2s ease-out infinite}
+.fab-call{background:var(--navy);width:52px;height:52px}
+.fab-gps{background:var(--red);width:52px;height:52px}
+@keyframes ring-pulse{0%{transform:scale(.85);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+.fab svg{width:26px;height:26px}
+.fab-call svg,.fab-gps svg{width:22px;height:22px}
+
+/* ===== AI agent widget ===== */
+.ai-launcher{
+  position:fixed;left:22px;bottom:22px;z-index:900;width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--navy),var(--red));color:var(--white);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.24);
+  transition:transform .2s;
+}
+html[dir="rtl"] .ai-launcher{left:auto;right:22px}
+.ai-launcher:hover{transform:scale(1.08)}
+.ai-launcher svg{width:26px;height:26px}
+.ai-launcher .pulse-dot{position:absolute;top:4px;right:4px;width:12px;height:12px;border-radius:50%;background:#4ade80;border:2px solid var(--white)}
+
+.ai-panel{
+  position:fixed;left:22px;bottom:94px;z-index:901;width:340px;max-width:calc(100vw - 44px);
+  background:var(--white);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.3);
+  display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line);
+  max-height:70vh;
+}
+html[dir="rtl"] .ai-panel{left:auto;right:22px}
+.ai-panel.open{display:flex}
+.ai-head{background:var(--navy);color:var(--white);padding:16px 18px;display:flex;align-items:center;gap:12px}
+.ai-head .av{width:36px;height:36px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ai-head .av svg{width:18px;height:18px}
+.ai-head strong{display:block;font-size:14px}
+.ai-head span{font-size:11px;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+.ai-head span::before{content:"";width:6px;height:6px;border-radius:50%;background:#4ade80}
+.ai-close{margin-left:auto;color:rgba(255,255,255,.7);font-size:20px;line-height:1;padding:4px}
+html[dir="rtl"] .ai-close{margin-left:0;margin-right:auto}
+.ai-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--ivory)}
+.msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:13.3px;line-height:1.5}
+.msg.bot{background:var(--white);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:3px;color:var(--ink)}
+html[dir="rtl"] .msg.bot{align-self:flex-end;border-bottom-left-radius:12px;border-bottom-right-radius:3px}
+.msg.user{background:var(--navy);color:var(--white);align-self:flex-end;border-bottom-right-radius:3px}
+html[dir="rtl"] .msg.user{align-self:flex-start;border-bottom-right-radius:12px;border-bottom-left-radius:3px}
+.quick-replies{display:flex;flex-direction:column;gap:8px;align-self:stretch}
+.qr-btn{
+  background:var(--white);border:1.5px solid var(--navy);color:var(--navy-deep);
+  padding:9px 12px;border-radius:8px;font-size:12.5px;font-weight:500;text-align:left;transition:.2s;
+}
+html[dir="rtl"] .qr-btn{text-align:right}
+.qr-btn:hover{background:var(--navy);color:var(--white)}
+.qr-btn.wa-final{background:#25D366;border-color:#25D366;color:var(--white);display:flex;align-items:center;gap:8px;justify-content:center}
+.ai-foot{padding:12px;border-top:1px solid var(--line);display:flex;gap:8px;background:var(--white)}
+.ai-foot input{flex:1;padding:11px 13px;border:1.5px solid var(--line);border-radius:24px;font-size:13px;font-family:inherit}
+.ai-foot input:focus{outline:none;border-color:var(--navy)}
+.ai-foot button{
+  width:42px;height:42px;border-radius:50%;background:var(--red);color:var(--white);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ai-foot button svg{width:17px;height:17px}
+
+/* ===== responsive ===== */
+@media (max-width:980px){
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{grid-template-columns:1fr}
+  .feature-list{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  .gal-item.gal-big{grid-column:span 2;grid-row:span 1}
+  .gal-item:nth-child(2),.gal-item:nth-child(3){grid-column:span 1}
+}
+@media (max-width:800px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .nav-cta{display:none}
+}
+@media (max-width:560px){
+  .svc-grid{grid-template-columns:1fr}
+  .section{padding:70px 0}
+  .hero{padding:150px 0 80px}
+  .ai-panel{width:calc(100vw - 32px);left:16px;bottom:84px}
+  html[dir="rtl"] .ai-panel{right:16px}
+  .fab-stack{right:14px;bottom:14px}
+  .ai-launcher{left:14px;bottom:14px}
+  html[dir="rtl"] .ai-launcher{right:14px}
+  .gal-grid{grid-template-columns:1fr;grid-auto-rows:220px}
+  .gal-item.gal-big{grid-column:span 1}
+  .gal-item figcaption{opacity:1;background:linear-gradient(to top,rgba(11,20,45,.75) 0%,rgba(11,20,45,0) 65%)}
+}
+
+/* mobile menu drawer */
+.mobile-menu{
+  position:fixed;inset:0;background:rgba(19,44,110,.6);z-index:600;display:none;
+}
+.mobile-menu.open{display:block}
+.mobile-menu .sheet{
+  position:absolute;top:0;right:0;width:78%;max-width:340px;height:100%;background:var(--white);
+  padding:28px 26px;display:flex;flex-direction:column;gap:6px;
+}
+html[dir="rtl"] .mobile-menu .sheet{right:auto;left:0}
+.mobile-menu .sheet a{padding:14px 6px;font-size:15px;font-weight:600;color:var(--navy-deep);border-bottom:1px solid var(--line)}
+.mobile-menu .close-x{align-self:flex-end;font-size:26px;color:var(--ink-soft);padding:6px}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="container nav-row">
+    <a href="#home" class="brand">
+      <img class="brand-logo" src="https://i.imgur.com/A5vVqGu.png" alt="Maison La Ville Haute">
+      <span class="brand-text">
+        <strong>Maison La Ville Haute</strong>
+        <span>Kénitra</span>
+      </span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#home" data-i18n="nav_home">Accueil</a>
+      <a href="#about" data-i18n="nav_about">Qui sommes-nous</a>
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#gallery" data-i18n="nav_gallery">Galerie</a>
+      <a href="#reviews" data-i18n="nav_reviews">Avis</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+          <span class="flag" id="langBtnFlag">🇫🇷</span>
+          <span id="langBtnLabel">FR</span>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <button data-lang="fr" class="active"><span class="flag">🇫🇷</span> Français</button>
+          <button data-lang="ar"><span class="flag">🇲🇦</span> العربية (المغرب)</button>
+          <button data-lang="es"><span class="flag">🇪🇸</span> Español</button>
+          <button data-lang="en"><span class="flag">🇬🇧</span> English</button>
+          <button data-lang="it"><span class="flag">🇮🇹</span> Italiano</button>
+        </div>
+      </div>
+      <a href="#contact" class="nav-cta" data-i18n="nav_cta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+        <span data-i18n="nav_cta_text">Réserver</span>
+      </a>
+      <button class="burger" id="burgerBtn" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="sheet">
+    <span class="close-x" id="mobileClose">&times;</span>
+    <a href="#home" data-i18n="nav_home">Accueil</a>
+    <a href="#about" data-i18n="nav_about">Qui sommes-nous</a>
+    <a href="#services" data-i18n="nav_services">Services</a>
+    <a href="#gallery" data-i18n="nav_gallery">Galerie</a>
+    <a href="#reviews" data-i18n="nav_reviews">Avis</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="https://i.imgur.com/A5vVqGu.png">
+    <source src="https://i.imgur.com/Bxf9eEp.mp4" type="video/mp4">
+  </video>
+  <div class="hero-video-overlay" aria-hidden="true"></div>
+  <button class="hero-sound-btn" id="heroSoundBtn" aria-label="toggle sound">
+    <svg id="heroSoundIconOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+    <svg id="heroSoundIconOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+  </button>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="hero_eyebrow">Salon de coiffure &amp; barbier</span>
+      <h1 data-i18n-html="hero_title">Maison <em>La Ville Haute</em><br>l'élégance masculine à Kénitra</h1>
+      <p class="lead" data-i18n="hero_lead">Coupe classique, taille de barbe, rasage traditionnel et soins visage — dans un cadre raffiné, au cœur de la Ville Haute de Kénitra.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary" data-i18n="hero_btn1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+          <span data-i18n="hero_btn1_text">Prendre rendez-vous</span>
+        </a>
+        <a id="heroWaLink" href="#" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C9.37 3 3.98 8.39 3.98 15.06c0 2.24.6 4.33 1.66 6.13L3 29l7.99-2.6a12.03 12.03 0 0 0 5.05 1.1h.01c6.67 0 12.06-5.4 12.06-12.06C28.11 8.39 22.72 3 16.05 3zM16.05 25.5c-1.58 0-3.13-.42-4.48-1.22l-.32-.19-4.74 1.54 1.55-4.62-.21-.34a9.92 9.92 0 0 1-1.53-5.3c0-5.5 4.48-9.98 9.98-9.98 5.5 0 9.98 4.48 9.98 9.98 0 5.5-4.48 9.98-9.98 9.98zM21.35 17.75c-.29-.14-1.71-.84-1.97-.94-.26-.1-.46-.14-.65.15-.19.29-.75.94-.92 1.14-.17.19-.34.22-.63.07-.29-.14-1.2-.44-2.29-1.41-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.03 2.82 1.17 3.01.14.19 2.03 3.1 4.92 4.35.69.3 1.22.48 1.64.61.69.22 1.31.19 1.81.11.55-.08 1.71-.7 1.95-1.37.24-.68.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34z"/></svg>
+          <span data-i18n="hero_btn2_text">WhatsApp direct</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>+12</strong><span data-i18n="hero_stat1">ans d'expérience</span></div>
+        <div><strong>4.9/5</strong><span data-i18n="hero_stat2">note moyenne</span></div>
+        <div><strong>+3200</strong><span data-i18n="hero_stat3">clients satisfaits</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="pole-mini" aria-hidden="true"></div>
+        <h3 data-i18n="hero_card_title">Ville Haute, Kénitra</h3>
+        <p data-i18n="hero_card_text">Un salon pensé comme une adresse : matériaux nobles, gestes précis, service personnalisé du premier rendez-vous au dernier coup de ciseaux.</p>
+        <span class="badge"><span class="dot"></span><span data-i18n="hero_card_badge">Ouvert aujourd'hui — sur rendez-vous</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pole-divider" aria-hidden="true"></div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section about" id="about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <img class="about-photo" src="https://i.imgur.com/h6MYflM.png" alt="Maison La Ville Haute">
+      <div class="stripe" aria-hidden="true"></div>
+      <div class="photo-fade" aria-hidden="true"></div>
+      <div class="init">
+        <strong data-i18n="about_visual_title">Maison Ville Haute</strong>
+        <span data-i18n="about_visual_sub">Depuis nos débuts, une seule exigence : la précision.</span>
+      </div>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow" data-i18n="about_eyebrow">Qui sommes-nous</span>
+      <h2 data-i18n="about_title" style="margin-top:12px;font-size:clamp(26px,3.6vw,38px)">L'art de la coiffure, transmis avec exigence</h2>
+      <p data-i18n="about_p1">Maison La Ville Haute est un salon de coiffure et de barbier situé au cœur du quartier de la Ville Haute à Kénitra. Nous accueillons chaque client comme un invité, avec une attention portée aux détails : chaude serviette, produits sélectionnés, geste sûr.</p>
+      <p data-i18n="about_p2">Notre équipe de coiffeurs et barbiers expérimentés maîtrise aussi bien les techniques classiques marocaines que les tendances internationales, pour un résultat toujours net, élégant et durable.</p>
+      <ul class="feature-list">
+        <li><span class="ic">✓</span><span data-i18n="about_f1">Coiffeurs certifiés</span></li>
+        <li><span class="ic">✓</span><span data-i18n="about_f2">Matériel stérilisé</span></li>
+        <li><span class="ic">✓</span><span data-i18n="about_f3">Sur rendez-vous</span></li>
+        <li><span class="ic">✓</span><span data-i18n="about_f4">Produits premium</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="svc_eyebrow">Nos prestations</span>
+      <h2 data-i18n="svc_title">Des soins pensés pour chaque style</h2>
+      <p data-i18n="svc_sub">Une sélection de services classiques et modernes, réalisés avec précision par notre équipe.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg>
+        </div>
+        <h3 data-i18n="svc1_title">Coupe classique</h3>
+        <p data-i18n="svc1_text">Coupe sur mesure adaptée à la forme du visage et au style de chacun.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+        </div>
+        <h3 data-i18n="svc2_title">Taille de barbe</h3>
+        <p data-i18n="svc2_text">Taille et sculpture de barbe précise, finitions au rasoir.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </div>
+        <h3 data-i18n="svc3_title">Rasage traditionnel</h3>
+        <p data-i18n="svc3_text">Rasage au coupe-chou façon Ville Haute, serviette chaude incluse.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3 data-i18n="svc4_title">Soin visage</h3>
+        <p data-i18n="svc4_text">Nettoyage, gommage et masque pour une peau nette et reposée.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pole-divider" aria-hidden="true"></div>
+
+<!-- ============ GALLERY ============ -->
+<section class="section gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="gal_eyebrow">Galerie</span>
+      <h2 data-i18n="gal_title">L'univers Ville Haute en images</h2>
+      <p data-i18n="gal_sub">Un aperçu du salon, de l'ambiance et du travail de précision de notre équipe.</p>
+    </div>
+    <div class="gal-grid" id="galGrid">
+      <figure class="gal-item gal-big" data-idx="0">
+        <img src="https://i.imgur.com/lyw6RQY.png" alt="" loading="lazy">
+        <figcaption>
+          <span class="gal-cap" data-i18n="gal_cap1">L'intérieur du salon</span>
+          <span class="gal-zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="gal-item" data-idx="1">
+        <img src="https://i.imgur.com/sTNzsPj.png" alt="" loading="lazy">
+        <figcaption>
+          <span class="gal-cap" data-i18n="gal_cap2">Précision du geste</span>
+          <span class="gal-zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="gal-item" data-idx="2">
+        <img src="https://i.imgur.com/aHqQfbf.png" alt="" loading="lazy">
+        <figcaption>
+          <span class="gal-cap" data-i18n="gal_cap3">Finitions soignées</span>
+          <span class="gal-zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lbClose" aria-label="close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="previous">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <div class="lb-stage">
+    <img id="lbImg" src="" alt="">
+    <div class="lb-caption" id="lbCaption"></div>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="next">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</div>
+
+<div class="pole-divider" aria-hidden="true"></div>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div class="rev-top">
+      <div>
+        <span class="eyebrow" data-i18n="rev_eyebrow">Avis clients</span>
+        <h2 data-i18n="rev_title" style="margin-top:12px;font-size:clamp(26px,3.6vw,38px)">Ce que disent nos clients</h2>
+      </div>
+      <div class="rev-score">
+        <strong>4.9</strong>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="sub" data-i18n="rev_sub">Sur 7 avis vérifiés</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rev-track-wrap">
+      <div class="rev-track" id="revTrack">
+        <!-- review cards injected by JS -->
+      </div>
+      <div class="rev-nav">
+        <button id="revPrev" aria-label="prev">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button id="revNext" aria-label="next">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="contact_eyebrow">Contact</span>
+      <h2 data-i18n="contact_title">Réservez votre créneau</h2>
+      <p data-i18n="contact_sub">Remplissez le formulaire ou contactez-nous directement — nous répondons rapidement.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <div class="info-card">
+          <div class="info-row">
+            <span class="info-ic">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <strong data-i18n="info_addr_label">Adresse</strong>
+              <span data-i18n="info_addr_value">88, Angle Jamil Sedki Zouhaoui et Loubnane, Magasin N°4, Kénitra 14000, Maroc</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <span class="info-ic">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <div>
+              <strong data-i18n="info_phone_label">Téléphone</strong>
+              <a href="tel:+33758972684">+33 7 58 97 26 84</a>
+            </div>
+          </div>
+          <div class="info-row">
+            <span class="info-ic">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
+            </span>
+            <div>
+              <strong data-i18n="info_hours_label">Horaires</strong>
+              <span data-i18n="info_hours_value">Lun – Sam : 9h00 – 20h00</span>
+            </div>
+          </div>
+        </div>
+        <div class="map-embed">
+          <iframe title="Kénitra Ville Haute map" loading="lazy" src="https://www.google.com/maps?q=88+Angle+Jamil+Sedki+Zouhaoui+et+Loubnane+Kenitra+14000+Maroc&output=embed"></iframe>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div id="formWrap">
+          <h3 data-i18n="form_title">Formulaire de réservation</h3>
+          <p data-i18n="form_sub">Champs marqués * obligatoires. Réponse sous 24h.</p>
+          <form id="bookingForm" novalidate>
+            <div class="form-row">
+              <div class="field" data-field="name">
+                <label data-i18n="form_name">Nom complet *</label>
+                <input type="text" name="name" autocomplete="name">
+                <span class="err-msg" data-i18n="form_err_name">Veuillez indiquer votre nom.</span>
+              </div>
+              <div class="field" data-field="phone">
+                <label data-i18n="form_phone">Téléphone *</label>
+                <input type="tel" name="phone" autocomplete="tel" placeholder="+212 6 00 00 00 00">
+                <span class="err-msg" data-i18n="form_err_phone">Numéro de téléphone invalide.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field" data-field="email">
+                <label data-i18n="form_email">E-mail</label>
+                <input type="email" name="email" autocomplete="email">
+                <span class="err-msg" data-i18n="form_err_email">Adresse e-mail invalide.</span>
+              </div>
+              <div class="field" data-field="date">
+                <label data-i18n="form_date">Date souhaitée *</label>
+                <input type="date" name="date">
+                <span class="err-msg" data-i18n="form_err_date">Veuillez choisir une date.</span>
+              </div>
+            </div>
+            <div class="field">
+              <label data-i18n="form_service">Service souhaité *</label>
+              <div class="chip-group" id="serviceChips">
+                <span class="chip active" data-val="coupe" data-i18n="chip1">Coupe classique</span>
+                <span class="chip" data-val="barbe" data-i18n="chip2">Taille de barbe</span>
+                <span class="chip" data-val="rasage" data-i18n="chip3">Rasage traditionnel</span>
+                <span class="chip" data-val="soin" data-i18n="chip4">Soin visage</span>
+              </div>
+            </div>
+            <div class="field">
+              <label data-i18n="form_msg">Message (optionnel)</label>
+              <textarea name="message" data-i18n-placeholder="form_msg_ph" placeholder="Précisez vos besoins ou vos disponibilités..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              <span data-i18n="form_submit">Envoyer ma demande</span>
+            </button>
+          </form>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="ic">✓</div>
+          <h4 data-i18n="form_success_title">Demande envoyée !</h4>
+          <p data-i18n="form_success_text">Merci, nous vous recontactons très vite pour confirmer votre rendez-vous.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-row">
+    <div class="fbrand">
+      <img src="https://i.imgur.com/h6MYflM.png" alt="Maison La Ville Haute" style="width:30px;height:30px;object-fit:contain">
+      <span>Maison La Ville Haute — Kénitra</span>
+    </div>
+    <span data-i18n="foot_rights">© 2026 Maison La Ville Haute. Tous droits réservés.</span>
+    <div class="foot-credit" data-i18n-html="foot_credit">Site créé par <strong>Herio Marketing Digital 360° Maroc</strong></div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING ACTION BUTTONS ============ -->
+<div class="fab-stack">
+  <a class="fab fab-gps" id="gpsFab" href="https://www.google.com/maps/search/?api=1&query=88+Angle+Jamil+Sedki+Zouhaoui+et+Loubnane+Kenitra+14000+Maroc" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span class="fab-tooltip" data-i18n="fab_gps">Itinéraire</span>
+  </a>
+  <a class="fab fab-call" id="callFab" href="tel:+33758972684">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span class="fab-tooltip" data-i18n="fab_call">Appeler</span>
+  </a>
+  <a class="fab fab-wa" id="waFab" href="#" target="_blank" rel="noopener">
+    <span class="ring" aria-hidden="true"></span>
+    <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C9.37 3 3.98 8.39 3.98 15.06c0 2.24.6 4.33 1.66 6.13L3 29l7.99-2.6a12.03 12.03 0 0 0 5.05 1.1h.01c6.67 0 12.06-5.4 12.06-12.06C28.11 8.39 22.72 3 16.05 3zM16.05 25.5c-1.58 0-3.13-.42-4.48-1.22l-.32-.19-4.74 1.54 1.55-4.62-.21-.34a9.92 9.92 0 0 1-1.53-5.3c0-5.5 4.48-9.98 9.98-9.98 5.5 0 9.98 4.48 9.98 9.98 0 5.5-4.48 9.98-9.98 9.98zM21.35 17.75c-.29-.14-1.71-.84-1.97-.94-.26-.1-.46-.14-.65.15-.19.29-.75.94-.92 1.14-.17.19-.34.22-.63.07-.29-.14-1.2-.44-2.29-1.41-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.03 2.82 1.17 3.01.14.19 2.03 3.1 4.92 4.35.69.3 1.22.48 1.64.61.69.22 1.31.19 1.81.11.55-.08 1.71-.7 1.95-1.37.24-.68.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34z"/></svg>
+    <span class="fab-tooltip" data-i18n="fab_wa">Discuter sur WhatsApp</span>
+  </a>
+</div>
+
+<!-- ============ AI AGENT WIDGET ============ -->
+<button class="ai-launcher" id="aiLauncher" aria-label="AI assistant">
+  <span class="pulse-dot" aria-hidden="true"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2M8 13h.01M16 13h.01"/></svg>
+</button>
+
+<div class="ai-panel" id="aiPanel">
+  <div class="ai-head">
+    <span class="av">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2M8 13h.01M16 13h.01"/></svg>
+    </span>
+    <div>
+      <strong data-i18n="ai_name">Assistant Ville Haute</strong>
+      <span data-i18n="ai_status">En ligne</span>
+    </div>
+    <span class="ai-close" id="aiClose">&times;</span>
+  </div>
+  <div class="ai-body" id="aiBody"></div>
+  <div class="ai-foot">
+    <input type="text" id="aiInput" data-i18n-placeholder="ai_input_ph" placeholder="Écrivez votre question...">
+    <button id="aiSend" aria-label="send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — replace with real business data
+   ============================================================ */
+const CONFIG = {
+  whatsappNumber: "33758972684", // remplacez par le vrai numéro WhatsApp (format international sans +)
+  phoneNumber: "+33758972684",
+  gpsQuery: "88+Angle+Jamil+Sedki+Zouhaoui+et+Loubnane+Kenitra+14000+Maroc"
+};
+
+/* ============================================================
+   I18N DICTIONARY
+   ============================================================ */
+const I18N = {
+fr:{
+  nav_home:"Accueil", nav_about:"Qui sommes-nous", nav_services:"Services", nav_gallery:"Galerie", nav_reviews:"Avis", nav_contact:"Contact",
+  nav_cta:"Réserver", nav_cta_text:"Réserver",
+  hero_eyebrow:"Salon de coiffure & barbier",
+  hero_title:"Maison <em>La Ville Haute</em><br>l'élégance masculine à Kénitra",
+  hero_lead:"Coupe classique, taille de barbe, rasage traditionnel et soins visage — dans un cadre raffiné, au cœur de la Ville Haute de Kénitra.",
+  hero_btn1_text:"Prendre rendez-vous", hero_btn2_text:"WhatsApp direct",
+  hero_stat1:"ans d'expérience", hero_stat2:"note moyenne", hero_stat3:"clients satisfaits",
+  hero_card_title:"Ville Haute, Kénitra",
+  hero_card_text:"Un salon pensé comme une adresse : matériaux nobles, gestes précis, service personnalisé du premier rendez-vous au dernier coup de ciseaux.",
+  hero_card_badge:"Ouvert aujourd'hui — sur rendez-vous",
+  about_visual_title:"Maison Ville Haute", about_visual_sub:"Depuis nos débuts, une seule exigence : la précision.",
+  about_eyebrow:"Qui sommes-nous", about_title:"L'art de la coiffure, transmis avec exigence",
+  about_p1:"Maison La Ville Haute est un salon de coiffure et de barbier situé au cœur du quartier de la Ville Haute à Kénitra. Nous accueillons chaque client comme un invité, avec une attention portée aux détails : chaude serviette, produits sélectionnés, geste sûr.",
+  about_p2:"Notre équipe de coiffeurs et barbiers expérimentés maîtrise aussi bien les techniques classiques marocaines que les tendances internationales, pour un résultat toujours net, élégant et durable.",
+  about_f1:"Coiffeurs certifiés", about_f2:"Matériel stérilisé", about_f3:"Sur rendez-vous", about_f4:"Produits premium",
+  svc_eyebrow:"Nos prestations", svc_title:"Des soins pensés pour chaque style",
+  svc_sub:"Une sélection de services classiques et modernes, réalisés avec précision par notre équipe.",
+  svc1_title:"Coupe classique", svc1_text:"Coupe sur mesure adaptée à la forme du visage et au style de chacun.",
+  svc2_title:"Taille de barbe", svc2_text:"Taille et sculpture de barbe précise, finitions au rasoir.",
+  svc3_title:"Rasage traditionnel", svc3_text:"Rasage au coupe-chou façon Ville Haute, serviette chaude incluse.",
+  svc4_title:"Soin visage", svc4_text:"Nettoyage, gommage et masque pour une peau nette et reposée.",
+  gal_eyebrow:"Galerie", gal_title:"L'univers Ville Haute en images", gal_sub:"Un aperçu du salon, de l'ambiance et du travail de précision de notre équipe.",
+  gal_cap1:"L'intérieur du salon", gal_cap2:"Précision du geste", gal_cap3:"Finitions soignées",
+  rev_eyebrow:"Avis clients", rev_title:"Ce que disent nos clients", rev_sub:"Sur 7 avis vérifiés", rev_src:"Avis Google",
+  contact_eyebrow:"Contact", contact_title:"Réservez votre créneau",
+  contact_sub:"Remplissez le formulaire ou contactez-nous directement — nous répondons rapidement.",
+  info_addr_label:"Adresse", info_addr_value:"88, Angle Jamil Sedki Zouhaoui et Loubnane, Magasin N°4, Kénitra 14000, Maroc",
+  info_phone_label:"Téléphone", info_hours_label:"Horaires", info_hours_value:"Lun – Sam : 9h00 – 20h00",
+  form_title:"Formulaire de réservation", form_sub:"Champs marqués * obligatoires. Réponse sous 24h.",
+  form_name:"Nom complet *", form_err_name:"Veuillez indiquer votre nom.",
+  form_phone:"Téléphone *", form_err_phone:"Numéro de téléphone invalide.",
+  form_email:"E-mail", form_err_email:"Adresse e-mail invalide.",
+  form_date:"Date souhaitée *", form_err_date:"Veuillez choisir une date.",
+  form_service:"Service souhaité *",
+  chip1:"Coupe classique", chip2:"Taille de barbe", chip3:"Rasage traditionnel", chip4:"Soin visage",
+  form_msg:"Message (optionnel)", form_msg_ph:"Précisez vos besoins ou vos disponibilités...",
+  form_submit:"Envoyer ma demande",
+  form_success_title:"Demande envoyée !", form_success_text:"Merci, nous vous recontactons très vite pour confirmer votre rendez-vous.",
+  foot_rights:"© 2026 Maison La Ville Haute. Tous droits réservés.",
+  foot_credit:"Site créé par <strong>Herio Marketing Digital 360° Maroc</strong>",
+  fab_gps:"Itinéraire", fab_call:"Appeler", fab_wa:"Discuter sur WhatsApp",
+  ai_name:"Assistant Ville Haute", ai_status:"En ligne", ai_input_ph:"Écrivez votre question...",
+  ai_greeting:"Bonjour 👋 Je suis l'assistant de Maison La Ville Haute. Comment puis-je vous aider ?",
+  ai_q1:"Quels sont vos horaires ?", ai_q2:"Où êtes-vous situés ?", ai_q3:"Quels sont vos tarifs ?", ai_q4:"Parler à un humain",
+  ai_a1:"Nous sommes ouverts du lundi au samedi, de 9h00 à 20h00.",
+  ai_a2:"Nous sommes situés 88, Angle Jamil Sedki Zouhaoui et Loubnane, Magasin N°4, Kénitra 14000, Maroc.",
+  ai_a3:"Nos tarifs varient selon le service choisi. Contactez-nous par WhatsApp ou par téléphone pour connaître le tarif exact.",
+  ai_final:"Pour finaliser votre rendez-vous, continuons la conversation sur WhatsApp 👇",
+  ai_wa_btn:"Continuer sur WhatsApp",
+  ai_fallback:"Merci pour votre question. Pour une réponse précise et rapide, continuons sur WhatsApp 👇",
+  wa_prefill:"Bonjour, je souhaite prendre rendez-vous chez Maison La Ville Haute (Kénitra)."
+},
+ar:{
+  nav_home:"الرئيسية", nav_about:"من نحن", nav_services:"الخدمات", nav_gallery:"معرض الصور", nav_reviews:"آراء الزبناء", nav_contact:"اتصل بنا",
+  nav_cta:"احجز الآن", nav_cta_text:"احجز الآن",
+  hero_eyebrow:"صالون حلاقة رجالي",
+  hero_title:"ميزون <em>فيل أوت</em><br>الأناقة الرجالية في القنيطرة",
+  hero_lead:"قصة كلاسيكية، تهذيب اللحية، حلاقة تقليدية وعناية بالوجه — في أجواء راقية، بقلب حي فيل أوت بالقنيطرة.",
+  hero_btn1_text:"احجز موعدك", hero_btn2_text:"واتساب مباشر",
+  hero_stat1:"سنة خبرة", hero_stat2:"متوسط التقييم", hero_stat3:"زبون راضٍ",
+  hero_card_title:"فيل أوت، القنيطرة",
+  hero_card_text:"صالون مصمم كعلامة مميزة: خامات فاخرة، حركات دقيقة، خدمة شخصية من أول موعد إلى آخر لمسة.",
+  hero_card_badge:"مفتوح اليوم — بموعد مسبق",
+  about_visual_title:"دار فيل أوت", about_visual_sub:"منذ انطلاقتنا، مطلب واحد: الدقة.",
+  about_eyebrow:"من نحن", about_title:"فن الحلاقة، بحرفية عالية",
+  about_p1:"ميزون فيل أوت هو صالون حلاقة رجالي يقع في قلب حي فيل أوت بمدينة القنيطرة. نستقبل كل زبون كضيف، مع الاهتمام بأدق التفاصيل: منشفة دافئة، منتجات مختارة، ويد خبيرة.",
+  about_p2:"يتقن فريقنا من الحلاقين ذوي الخبرة التقنيات المغربية الكلاسيكية والاتجاهات العالمية الحديثة، لنتيجة أنيقة ومتقنة ودائمة.",
+  about_f1:"حلاقون معتمدون", about_f2:"معدات معقّمة", about_f3:"بموعد مسبق", about_f4:"منتجات عالية الجودة",
+  svc_eyebrow:"خدماتنا", svc_title:"عناية مصممة لكل ستايل",
+  svc_sub:"مجموعة من الخدمات الكلاسيكية والعصرية، تُنجز بدقة من طرف فريقنا.",
+  svc1_title:"قصة كلاسيكية", svc1_text:"قصة مخصصة تتناسب مع شكل الوجه وأسلوب كل زبون.",
+  svc2_title:"تهذيب اللحية", svc2_text:"تهذيب ونحت دقيق للحية، مع لمسات نهائية بالموس.",
+  svc3_title:"حلاقة تقليدية", svc3_text:"حلاقة بالموس على الطريقة التقليدية، مع منشفة ساخنة.",
+  svc4_title:"عناية بالوجه", svc4_text:"تنظيف وتقشير وقناع لبشرة نظيفة ومنتعشة.",
+  gal_eyebrow:"معرض الصور", gal_title:"أجواء فيل أوت بالصور", gal_sub:"لمحة عن الصالون وأجوائه ودقة عمل فريقنا.",
+  gal_cap1:"داخل الصالون", gal_cap2:"دقة اليد", gal_cap3:"لمسات نهائية متقنة",
+  rev_eyebrow:"آراء الزبناء", rev_title:"ماذا يقول عملاؤنا", rev_sub:"7 تقييمات موثقة", rev_src:"تقييم Google",
+  contact_eyebrow:"اتصل بنا", contact_title:"احجز موعدك",
+  contact_sub:"املأ الاستمارة أو تواصل معنا مباشرة — نرد بسرعة.",
+  info_addr_label:"العنوان", info_addr_value:"88، تقاطع شارع جميل صدقي الزهراوي وشارع لبنان، محل رقم 4، القنيطرة 14000، المغرب",
+  info_phone_label:"الهاتف", info_hours_label:"أوقات العمل", info_hours_value:"من الاثنين إلى السبت: 9:00 – 20:00",
+  form_title:"استمارة الحجز", form_sub:"الحقول المعلمة بـ * إلزامية. الرد خلال 24 ساعة.",
+  form_name:"الاسم الكامل *", form_err_name:"يرجى إدخال اسمكم.",
+  form_phone:"الهاتف *", form_err_phone:"رقم الهاتف غير صحيح.",
+  form_email:"البريد الإلكتروني", form_err_email:"البريد الإلكتروني غير صحيح.",
+  form_date:"التاريخ المرغوب *", form_err_date:"يرجى اختيار تاريخ.",
+  form_service:"الخدمة المرغوبة *",
+  chip1:"قصة كلاسيكية", chip2:"تهذيب اللحية", chip3:"حلاقة تقليدية", chip4:"عناية بالوجه",
+  form_msg:"ملاحظة (اختياري)", form_msg_ph:"حدد احتياجاتكم أو أوقات توفركم...",
+  form_submit:"إرسال الطلب",
+  form_success_title:"تم إرسال الطلب!", form_success_text:"شكرًا لكم، سنتواصل معكم قريبًا لتأكيد الموعد.",
+  foot_rights:"© 2026 ميزون فيل أوت. جميع الحقوق محفوظة.",
+  foot_credit:"الموقع من إنشاء <strong>Herio Marketing Digital 360° Maroc</strong>",
+  fab_gps:"الاتجاهات", fab_call:"اتصل بنا", fab_wa:"تحدث عبر واتساب",
+  ai_name:"مساعد فيل أوت", ai_status:"متصل الآن", ai_input_ph:"اكتب سؤالك...",
+  ai_greeting:"مرحبًا 👋 أنا المساعد الافتراضي لميزون فيل أوت. كيف يمكنني مساعدتك؟",
+  ai_q1:"ما هي أوقات العمل؟", ai_q2:"أين يقع الصالون؟", ai_q3:"ما هي أسعاركم؟", ai_q4:"التحدث مع شخص",
+  ai_a1:"نعمل من الاثنين إلى السبت، من الساعة 9:00 صباحًا حتى 20:00 مساءً.",
+  ai_a2:"نقع في 88، تقاطع شارع جميل صدقي الزهراوي وشارع لبنان، محل رقم 4، القنيطرة 14000، المغرب.",
+  ai_a3:"تختلف أسعارنا حسب الخدمة المطلوبة. تواصلوا معنا عبر واتساب أو الهاتف لمعرفة السعر بالضبط.",
+  ai_final:"لإتمام حجز موعدكم، لنكمل الحديث عبر واتساب 👇",
+  ai_wa_btn:"المتابعة عبر واتساب",
+  ai_fallback:"شكرًا على سؤالكم. للحصول على إجابة دقيقة وسريعة، لنكمل عبر واتساب 👇",
+  wa_prefill:"مرحبًا، أرغب في حجز موعد في ميزون فيل أوت (القنيطرة)."
+},
+es:{
+  nav_home:"Inicio", nav_about:"Quiénes somos", nav_services:"Servicios", nav_gallery:"Galería", nav_reviews:"Reseñas", nav_contact:"Contacto",
+  nav_cta:"Reservar", nav_cta_text:"Reservar",
+  hero_eyebrow:"Peluquería y barbería",
+  hero_title:"Maison <em>La Ville Haute</em><br>elegancia masculina en Kenitra",
+  hero_lead:"Corte clásico, arreglo de barba, afeitado tradicional y tratamientos faciales — en un ambiente refinado, en el corazón de Ville Haute, Kenitra.",
+  hero_btn1_text:"Pedir cita", hero_btn2_text:"WhatsApp directo",
+  hero_stat1:"años de experiencia", hero_stat2:"valoración media", hero_stat3:"clientes satisfechos",
+  hero_card_title:"Ville Haute, Kenitra",
+  hero_card_text:"Un salón pensado como una dirección de referencia: materiales nobles, gestos precisos, servicio personalizado del primer al último detalle.",
+  hero_card_badge:"Abierto hoy — con cita previa",
+  about_visual_title:"Maison Ville Haute", about_visual_sub:"Desde nuestros inicios, una sola exigencia: la precisión.",
+  about_eyebrow:"Quiénes somos", about_title:"El arte de la peluquería, con exigencia",
+  about_p1:"Maison La Ville Haute es una peluquería y barbería situada en el corazón del barrio Ville Haute de Kenitra. Recibimos a cada cliente como a un invitado, cuidando cada detalle: toalla caliente, productos seleccionados, mano experta.",
+  about_p2:"Nuestro equipo de peluqueros y barberos experimentados domina tanto las técnicas clásicas marroquíes como las tendencias internacionales, para un resultado siempre pulcro, elegante y duradero.",
+  about_f1:"Peluqueros certificados", about_f2:"Material esterilizado", about_f3:"Con cita previa", about_f4:"Productos premium",
+  svc_eyebrow:"Nuestros servicios", svc_title:"Cuidados pensados para cada estilo",
+  svc_sub:"Una selección de servicios clásicos y modernos, realizados con precisión por nuestro equipo.",
+  svc1_title:"Corte clásico", svc1_text:"Corte a medida adaptado a la forma del rostro y el estilo de cada cliente.",
+  svc2_title:"Arreglo de barba", svc2_text:"Arreglo y perfilado preciso de barba, acabados a navaja.",
+  svc3_title:"Afeitado tradicional", svc3_text:"Afeitado a navaja al estilo Ville Haute, con toalla caliente incluida.",
+  svc4_title:"Tratamiento facial", svc4_text:"Limpieza, exfoliación y mascarilla para una piel fresca y cuidada.",
+  gal_eyebrow:"Galería", gal_title:"El universo Ville Haute en imágenes", gal_sub:"Un vistazo al salón, al ambiente y al trabajo de precisión de nuestro equipo.",
+  gal_cap1:"El interior del salón", gal_cap2:"Precisión en cada gesto", gal_cap3:"Acabados cuidados",
+  rev_eyebrow:"Reseñas de clientes", rev_title:"Lo que dicen nuestros clientes", rev_sub:"7 reseñas verificadas", rev_src:"Reseña de Google",
+  contact_eyebrow:"Contacto", contact_title:"Reserva tu cita",
+  contact_sub:"Completa el formulario o contáctanos directamente — respondemos rápido.",
+  info_addr_label:"Dirección", info_addr_value:"88, Cruce Jamil Sedki Zouhaoui y Loubnane, Local N°4, Kenitra 14000, Marruecos",
+  info_phone_label:"Teléfono", info_hours_label:"Horario", info_hours_value:"Lun – Sáb: 9:00 – 20:00",
+  form_title:"Formulario de reserva", form_sub:"Los campos marcados con * son obligatorios. Respuesta en 24h.",
+  form_name:"Nombre completo *", form_err_name:"Por favor indica tu nombre.",
+  form_phone:"Teléfono *", form_err_phone:"Número de teléfono no válido.",
+  form_email:"Correo electrónico", form_err_email:"Correo electrónico no válido.",
+  form_date:"Fecha deseada *", form_err_date:"Por favor elige una fecha.",
+  form_service:"Servicio deseado *",
+  chip1:"Corte clásico", chip2:"Arreglo de barba", chip3:"Afeitado tradicional", chip4:"Tratamiento facial",
+  form_msg:"Mensaje (opcional)", form_msg_ph:"Indica tus necesidades o disponibilidad...",
+  form_submit:"Enviar solicitud",
+  form_success_title:"¡Solicitud enviada!", form_success_text:"Gracias, te contactaremos muy pronto para confirmar tu cita.",
+  foot_rights:"© 2026 Maison La Ville Haute. Todos los derechos reservados.",
+  foot_credit:"Sitio creado por <strong>Herio Marketing Digital 360° Maroc</strong>",
+  fab_gps:"Cómo llegar", fab_call:"Llamar", fab_wa:"Chatear por WhatsApp",
+  ai_name:"Asistente Ville Haute", ai_status:"En línea", ai_input_ph:"Escribe tu pregunta...",
+  ai_greeting:"Hola 👋 Soy el asistente de Maison La Ville Haute. ¿En qué puedo ayudarte?",
+  ai_q1:"¿Cuál es su horario?", ai_q2:"¿Dónde están ubicados?", ai_q3:"¿Cuáles son sus precios?", ai_q4:"Hablar con una persona",
+  ai_a1:"Abrimos de lunes a sábado, de 9:00 a 20:00.",
+  ai_a2:"Estamos en 88, Cruce Jamil Sedki Zouhaoui y Loubnane, Local N°4, Kenitra 14000, Marruecos.",
+  ai_a3:"Nuestros precios varían según el servicio elegido. Contáctanos por WhatsApp o por teléfono para conocer la tarifa exacta.",
+  ai_final:"Para confirmar tu cita, sigamos la conversación por WhatsApp 👇",
+  ai_wa_btn:"Continuar por WhatsApp",
+  ai_fallback:"Gracias por tu pregunta. Para una respuesta precisa y rápida, continuemos por WhatsApp 👇",
+  wa_prefill:"Hola, quisiera reservar una cita en Maison La Ville Haute (Kenitra)."
+},
+en:{
+  nav_home:"Home", nav_about:"About us", nav_services:"Services", nav_gallery:"Gallery", nav_reviews:"Reviews", nav_contact:"Contact",
+  nav_cta:"Book now", nav_cta_text:"Book now",
+  hero_eyebrow:"Hair salon & barbershop",
+  hero_title:"Maison <em>La Ville Haute</em><br>men's elegance in Kenitra",
+  hero_lead:"Classic haircut, beard trim, traditional shave and facial care — in a refined setting, in the heart of Ville Haute, Kenitra.",
+  hero_btn1_text:"Book an appointment", hero_btn2_text:"WhatsApp direct",
+  hero_stat1:"years of experience", hero_stat2:"average rating", hero_stat3:"happy clients",
+  hero_card_title:"Ville Haute, Kenitra",
+  hero_card_text:"A salon designed as a landmark address: fine materials, precise gestures, personal service from the first appointment to the last detail.",
+  hero_card_badge:"Open today — by appointment",
+  about_visual_title:"Maison Ville Haute", about_visual_sub:"Since day one, one requirement: precision.",
+  about_eyebrow:"About us", about_title:"The art of hairdressing, done with care",
+  about_p1:"Maison La Ville Haute is a hair salon and barbershop located in the heart of the Ville Haute district in Kenitra. We welcome every client as a guest, paying attention to every detail: warm towel, selected products, a steady hand.",
+  about_p2:"Our team of experienced hairdressers and barbers masters both classic Moroccan techniques and international trends, for a result that is always neat, elegant and long-lasting.",
+  about_f1:"Certified hairdressers", about_f2:"Sterilized equipment", about_f3:"By appointment", about_f4:"Premium products",
+  svc_eyebrow:"Our services", svc_title:"Care designed for every style",
+  svc_sub:"A selection of classic and modern services, carried out with precision by our team.",
+  svc1_title:"Classic haircut", svc1_text:"Tailored haircut suited to face shape and personal style.",
+  svc2_title:"Beard trim", svc2_text:"Precise beard trimming and shaping, razor finish.",
+  svc3_title:"Traditional shave", svc3_text:"Straight-razor shave, Ville Haute style, with hot towel included.",
+  svc4_title:"Facial care", svc4_text:"Cleansing, exfoliation and mask for fresh, cared-for skin.",
+  gal_eyebrow:"Gallery", gal_title:"The Ville Haute world in pictures", gal_sub:"A glimpse of the salon, the atmosphere, and our team's precise craftsmanship.",
+  gal_cap1:"Inside the salon", gal_cap2:"Precision in every gesture", gal_cap3:"Careful finishing touches",
+  rev_eyebrow:"Client reviews", rev_title:"What our clients say", rev_sub:"From 7 verified reviews", rev_src:"Google review",
+  contact_eyebrow:"Contact", contact_title:"Book your slot",
+  contact_sub:"Fill in the form or contact us directly — we reply quickly.",
+  info_addr_label:"Address", info_addr_value:"88, Corner of Jamil Sedki Zouhaoui & Loubnane, Shop N°4, Kenitra 14000, Morocco",
+  info_phone_label:"Phone", info_hours_label:"Opening hours", info_hours_value:"Mon – Sat: 9:00 AM – 8:00 PM",
+  form_title:"Booking form", form_sub:"Fields marked * are required. Reply within 24h.",
+  form_name:"Full name *", form_err_name:"Please enter your name.",
+  form_phone:"Phone *", form_err_phone:"Invalid phone number.",
+  form_email:"Email", form_err_email:"Invalid email address.",
+  form_date:"Preferred date *", form_err_date:"Please choose a date.",
+  form_service:"Desired service *",
+  chip1:"Classic haircut", chip2:"Beard trim", chip3:"Traditional shave", chip4:"Facial care",
+  form_msg:"Message (optional)", form_msg_ph:"Tell us your needs or availability...",
+  form_submit:"Send request",
+  form_success_title:"Request sent!", form_success_text:"Thank you, we'll get back to you shortly to confirm your appointment.",
+  foot_rights:"© 2026 Maison La Ville Haute. All rights reserved.",
+  foot_credit:"Website created by <strong>Herio Marketing Digital 360° Maroc</strong>",
+  fab_gps:"Directions", fab_call:"Call", fab_wa:"Chat on WhatsApp",
+  ai_name:"Ville Haute Assistant", ai_status:"Online", ai_input_ph:"Type your question...",
+  ai_greeting:"Hello 👋 I'm the Maison La Ville Haute assistant. How can I help you?",
+  ai_q1:"What are your opening hours?", ai_q2:"Where are you located?", ai_q3:"What are your prices?", ai_q4:"Talk to a human",
+  ai_a1:"We're open Monday to Saturday, from 9:00 AM to 8:00 PM.",
+  ai_a2:"We're located at 88, Corner of Jamil Sedki Zouhaoui & Loubnane, Shop N°4, Kenitra 14000, Morocco.",
+  ai_a3:"Our prices vary depending on the service chosen. Contact us on WhatsApp or by phone for the exact rate.",
+  ai_final:"To finalize your appointment, let's continue on WhatsApp 👇",
+  ai_wa_btn:"Continue on WhatsApp",
+  ai_fallback:"Thanks for your question. For a quick, accurate answer, let's continue on WhatsApp 👇",
+  wa_prefill:"Hello, I'd like to book an appointment at Maison La Ville Haute (Kenitra)."
+},
+it:{
+  nav_home:"Home", nav_about:"Chi siamo", nav_services:"Servizi", nav_gallery:"Galleria", nav_reviews:"Recensioni", nav_contact:"Contatti",
+  nav_cta:"Prenota", nav_cta_text:"Prenota",
+  hero_eyebrow:"Salone di parrucchiere e barbiere",
+  hero_title:"Maison <em>La Ville Haute</em><br>eleganza maschile a Kenitra",
+  hero_lead:"Taglio classico, rifinitura barba, rasatura tradizionale e trattamenti viso — in un ambiente raffinato, nel cuore di Ville Haute, Kenitra.",
+  hero_btn1_text:"Prenota un appuntamento", hero_btn2_text:"WhatsApp diretto",
+  hero_stat1:"anni di esperienza", hero_stat2:"valutazione media", hero_stat3:"clienti soddisfatti",
+  hero_card_title:"Ville Haute, Kenitra",
+  hero_card_text:"Un salone pensato come un indirizzo di riferimento: materiali pregiati, gesti precisi, servizio personalizzato dal primo appuntamento all'ultimo dettaglio.",
+  hero_card_badge:"Aperto oggi — su appuntamento",
+  about_visual_title:"Maison Ville Haute", about_visual_sub:"Fin dall'inizio, un'unica esigenza: la precisione.",
+  about_eyebrow:"Chi siamo", about_title:"L'arte del taglio, con grande cura",
+  about_p1:"Maison La Ville Haute è un salone di parrucchiere e barbiere situato nel cuore del quartiere Ville Haute a Kenitra. Accogliamo ogni cliente come un ospite, curando ogni dettaglio: asciugamano caldo, prodotti selezionati, mano esperta.",
+  about_p2:"Il nostro team di parrucchieri e barbieri esperti padroneggia sia le tecniche classiche marocchine sia le tendenze internazionali, per un risultato sempre curato, elegante e duraturo.",
+  about_f1:"Parrucchieri certificati", about_f2:"Strumenti sterilizzati", about_f3:"Su appuntamento", about_f4:"Prodotti premium",
+  svc_eyebrow:"I nostri servizi", svc_title:"Trattamenti pensati per ogni stile",
+  svc_sub:"Una selezione di servizi classici e moderni, eseguiti con precisione dal nostro team.",
+  svc1_title:"Taglio classico", svc1_text:"Taglio su misura adatto alla forma del viso e allo stile personale.",
+  svc2_title:"Rifinitura barba", svc2_text:"Rifinitura e sagomatura precisa della barba, finiture a rasoio.",
+  svc3_title:"Rasatura tradizionale", svc3_text:"Rasatura a mano libera stile Ville Haute, con asciugamano caldo incluso.",
+  svc4_title:"Trattamento viso", svc4_text:"Pulizia, esfoliazione e maschera per una pelle fresca e curata.",
+  gal_eyebrow:"Galleria", gal_title:"L'universo Ville Haute in immagini", gal_sub:"Uno sguardo al salone, all'atmosfera e alla precisione del nostro team.",
+  gal_cap1:"L'interno del salone", gal_cap2:"Precisione in ogni gesto", gal_cap3:"Rifiniture curate",
+  rev_eyebrow:"Recensioni clienti", rev_title:"Cosa dicono i nostri clienti", rev_sub:"Da 7 recensioni verificate", rev_src:"Recensione Google",
+  contact_eyebrow:"Contatti", contact_title:"Prenota il tuo appuntamento",
+  contact_sub:"Compila il modulo o contattaci direttamente — rispondiamo rapidamente.",
+  info_addr_label:"Indirizzo", info_addr_value:"88, Angolo Jamil Sedki Zouhaoui e Loubnane, Negozio N°4, Kenitra 14000, Marocco",
+  info_phone_label:"Telefono", info_hours_label:"Orari", info_hours_value:"Lun – Sab: 9:00 – 20:00",
+  form_title:"Modulo di prenotazione", form_sub:"I campi con * sono obbligatori. Risposta entro 24h.",
+  form_name:"Nome completo *", form_err_name:"Inserisci il tuo nome.",
+  form_phone:"Telefono *", form_err_phone:"Numero di telefono non valido.",
+  form_email:"Email", form_err_email:"Indirizzo email non valido.",
+  form_date:"Data desiderata *", form_err_date:"Scegli una data.",
+  form_service:"Servizio desiderato *",
+  chip1:"Taglio classico", chip2:"Rifinitura barba", chip3:"Rasatura tradizionale", chip4:"Trattamento viso",
+  form_msg:"Messaggio (facoltativo)", form_msg_ph:"Indica le tue esigenze o disponibilità...",
+  form_submit:"Invia richiesta",
+  form_success_title:"Richiesta inviata!", form_success_text:"Grazie, ti ricontatteremo presto per confermare l'appuntamento.",
+  foot_rights:"© 2026 Maison La Ville Haute. Tutti i diritti riservati.",
+  foot_credit:"Sito creato da <strong>Herio Marketing Digital 360° Maroc</strong>",
+  fab_gps:"Indicazioni", fab_call:"Chiama", fab_wa:"Chatta su WhatsApp",
+  ai_name:"Assistente Ville Haute", ai_status:"Online", ai_input_ph:"Scrivi la tua domanda...",
+  ai_greeting:"Ciao 👋 Sono l'assistente di Maison La Ville Haute. Come posso aiutarti?",
+  ai_q1:"Quali sono gli orari?", ai_q2:"Dove siete situati?", ai_q3:"Quali sono i prezzi?", ai_q4:"Parlare con una persona",
+  ai_a1:"Siamo aperti dal lunedì al sabato, dalle 9:00 alle 20:00.",
+  ai_a2:"Siamo in 88, Angolo Jamil Sedki Zouhaoui e Loubnane, Negozio N°4, Kenitra 14000, Marocco.",
+  ai_a3:"I nostri prezzi variano in base al servizio scelto. Contattaci su WhatsApp o per telefono per conoscere la tariffa esatta.",
+  ai_final:"Per finalizzare l'appuntamento, continuiamo su WhatsApp 👇",
+  ai_wa_btn:"Continua su WhatsApp",
+  ai_fallback:"Grazie per la domanda. Per una risposta rapida e precisa, continuiamo su WhatsApp 👇",
+  wa_prefill:"Ciao, vorrei prenotare un appuntamento da Maison La Ville Haute (Kenitra)."
+}
+};
+let currentLang = "fr";
+
+/* ============================================================
+   REVIEWS DATA (7 reviews, generated avatar faces via SVG)
+   ============================================================ */
+const REVIEWS = [
+  {name:{fr:"Youssef B.",ar:"يوسف ب.",es:"Youssef B.",en:"Youssef B.",it:"Youssef B."},stars:5,skin:"#e8b98a",hair:"#2b2118",bg:"#2647a8",
+   time:{fr:"il y a 2 semaines",ar:"قبل أسبوعين",es:"hace 2 semanas",en:"2 weeks ago",it:"2 settimane fa"},
+   meta:{fr:"Client depuis 2 ans",ar:"زبون منذ سنتين",es:"Cliente desde hace 2 años",en:"Client for 2 years",it:"Cliente da 2 anni"},
+   text:{fr:"Le meilleur salon de la Ville Haute. Coupe impeccable et accueil chaleureux à chaque fois.",
+         ar:"أفضل صالون في فيل أوت. قصة متقنة واستقبال حار في كل مرة.",
+         es:"La mejor peluquería de Ville Haute. Corte impecable y recibimiento cálido cada vez.",
+         en:"The best salon in Ville Haute. Impeccable haircut and warm welcome every time.",
+         it:"Il miglior salone di Ville Haute. Taglio impeccabile e accoglienza calorosa ogni volta."}},
+  {name:{fr:"Karim El A.",ar:"كريم العلوي",es:"Karim El A.",en:"Karim El A.",it:"Karim El A."},stars:5,skin:"#c98a5e",hair:"#1a1a1a",bg:"#e85a2a",
+   time:{fr:"il y a 1 mois",ar:"قبل شهر",es:"hace 1 mes",en:"1 month ago",it:"1 mese fa"},
+   meta:{fr:"Rasage traditionnel",ar:"حلاقة تقليدية",es:"Afeitado tradicional",en:"Traditional shave",it:"Rasatura tradizionale"},
+   text:{fr:"Le rasage traditionnel avec serviette chaude est une expérience à part. Je recommande vivement !",
+         ar:"الحلاقة التقليدية مع المنشفة الساخنة تجربة استثنائية. أنصح بها بشدة!",
+         es:"El afeitado tradicional con toalla caliente es una experiencia aparte. ¡Muy recomendable!",
+         en:"The traditional shave with hot towel is a real experience. Highly recommend!",
+         it:"La rasatura tradizionale con asciugamano caldo è un'esperienza unica. Consigliatissimo!"}},
+  {name:{fr:"Anas T.",ar:"أنس ت.",es:"Anas T.",en:"Anas T.",it:"Anas T."},stars:5,skin:"#f0c8a0",hair:"#3a2a1a",bg:"#132c6e",
+   time:{fr:"il y a 3 semaines",ar:"قبل 3 أسابيع",es:"hace 3 semanas",en:"3 weeks ago",it:"3 settimane fa"},
+   meta:{fr:"Coupe + barbe",ar:"قصة + لحية",es:"Corte + barba",en:"Haircut + beard",it:"Taglio + barba"},
+   text:{fr:"Équipe très professionnelle, ponctuelle et à l'écoute. Mon adresse fixe désormais.",
+         ar:"فريق محترف جداً، منضبط في المواعيد ويستمع لملاحظاتك. أصبح عنواني الثابت.",
+         es:"Equipo muy profesional, puntual y atento. Ahora es mi dirección fija.",
+         en:"Very professional team, punctual and attentive. Now my go-to place.",
+         it:"Squadra molto professionale, puntuale e attenta. Ora è il mio indirizzo fisso."}},
+  {name:{fr:"Mehdi R.",ar:"مهدي ر.",es:"Mehdi R.",en:"Mehdi R.",it:"Mehdi R."},stars:4,skin:"#d9a06b",hair:"#241a10",bg:"#c8431a",
+   time:{fr:"il y a 1 semaine",ar:"قبل أسبوع",es:"hace 1 semana",en:"1 week ago",it:"1 settimana fa"},
+   meta:{fr:"Soin visage",ar:"عناية بالوجه",es:"Tratamiento facial",en:"Facial care",it:"Trattamento viso"},
+   text:{fr:"Très bon moment de détente, le soin visage fait vraiment du bien. Cadre agréable et propre.",
+         ar:"لحظة استرخاء رائعة، العناية بالوجه مفيدة فعلاً. المكان مريح ونظيف.",
+         es:"Muy buen momento de relax, el tratamiento facial sienta genial. Ambiente agradable y limpio.",
+         en:"Really relaxing, the facial care actually feels great. Pleasant and clean space.",
+         it:"Bel momento di relax, il trattamento viso fa davvero bene. Ambiente piacevole e pulito."}},
+  {name:{fr:"Othmane K.",ar:"عثمان ك.",es:"Othmane K.",en:"Othmane K.",it:"Othmane K."},stars:5,skin:"#efc9a3",hair:"#4a3728",bg:"#2647a8",
+   time:{fr:"il y a 5 jours",ar:"قبل 5 أيام",es:"hace 5 días",en:"5 days ago",it:"5 giorni fa"},
+   meta:{fr:"Nouveau client",ar:"زبون جديد",es:"Cliente nuevo",en:"New client",it:"Nuovo cliente"},
+   text:{fr:"Première visite très convaincante. On sent le savoir-faire et la précision du geste.",
+         ar:"أول زيارة كانت مقنعة جداً. تشعر بالخبرة ودقة اليد.",
+         es:"Primera visita muy convincente. Se nota el buen hacer y la precisión.",
+         en:"Very convincing first visit. You can feel the skill and precision.",
+         it:"Prima visita molto convincente. Si sente la competenza e la precisione."}},
+  {name:{fr:"Sami D.",ar:"سامي د.",es:"Sami D.",en:"Sami D.",it:"Sami D."},stars:5,skin:"#c07a4e",hair:"#151515",bg:"#e85a2a",
+   time:{fr:"il y a 2 mois",ar:"قبل شهرين",es:"hace 2 meses",en:"2 months ago",it:"2 mesi fa"},
+   meta:{fr:"Habitué du samedi",ar:"زبون يوم السبت",es:"Cliente habitual del sábado",en:"Regular Saturday client",it:"Cliente abituale del sabato"},
+   text:{fr:"Toujours le même niveau d'exigence, quelle que soit l'affluence. Bravo à toute l'équipe.",
+         ar:"نفس مستوى الإتقان دائماً، مهما كان الإقبال. تحية لكل الفريق.",
+         es:"Siempre el mismo nivel de exigencia, sin importar la afluencia. Enhorabuena a todo el equipo.",
+         en:"Always the same high standard, no matter how busy. Well done to the whole team.",
+         it:"Sempre lo stesso livello di qualità, indipendentemente dall'affluenza. Bravi a tutto il team."}},
+  {name:{fr:"Nabil H.",ar:"نبيل ح.",es:"Nabil H.",en:"Nabil H.",it:"Nabil H."},stars:5,skin:"#e3b487",hair:"#2f2318",bg:"#132c6e",
+   time:{fr:"il y a 4 jours",ar:"قبل 4 أيام",es:"hace 4 días",en:"4 days ago",it:"4 giorni fa"},
+   meta:{fr:"Client fidèle",ar:"زبون وفي",es:"Cliente fiel",en:"Loyal client",it:"Cliente fedele"},
+   text:{fr:"Un vrai salon de quartier avec un service haut de gamme. La Ville Haute peut être fière.",
+         ar:"صالون حي حقيقي بخدمة راقية. حي فيل أوت يستحق الفخر بهذا المكان.",
+         es:"Una auténtica peluquería de barrio con un servicio de primer nivel. Ville Haute puede estar orgulloso.",
+         en:"A true neighborhood salon with top-tier service. Ville Haute can be proud.",
+         it:"Un vero salone di quartiere con un servizio di alto livello. Ville Haute può essere orgogliosa."}}
+];
+
+function avatarSVG(skin,hair,bg,seed){
+  // Varied, natural-looking hairstyles + subtle gradient shading for a more photo-like face
+  const hairPaths = [
+    `M7 21c-1-11 7-18 18-18s19 7 18 18c-1-4-4-6-7-7 1-3-1-6-4-6h-14c-3 0-5 3-4 6-3 1-6 3-7 7z`,
+    `M6 23c-2-13 7-21 20-21s22 8 20 21c-2-5-6-8-10-9 0-4-3-7-7-7h-6c-4 0-7 3-7 7-4 1-8 4-10 9z`,
+    `M8 19c0-10 7-16 17-16s17 6 17 16c-2-2-5-3-7-3 1-4-2-7-6-7h-8c-4 0-7 3-6 7-2 0-5 1-7 3z`,
+    `M5 22c-1-12 8-20 21-20s22 8 21 20c-3-4-7-6-11-6 1-4-2-8-7-8h-6c-5 0-8 4-7 8-4 0-8 2-11 6z`
+  ];
+  const hp = hairPaths[seed % hairPaths.length];
+  const skinId = `sk${seed}`, hairId = `hr${seed}`;
+  return `<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="${skinId}" cx="38%" cy="30%" r="75%">
+        <stop offset="0%" stop-color="${skin}" stop-opacity="1"/>
+        <stop offset="100%" stop-color="${skin}" stop-opacity=".82"/>
+      </radialGradient>
+      <linearGradient id="${hairId}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="${hair}"/>
+        <stop offset="100%" stop-color="${hair}" stop-opacity=".9"/>
+      </linearGradient>
+    </defs>
+    <circle cx="25" cy="25" r="25" fill="${bg}"/>
+    <circle cx="16" cy="30" r="4" fill="url(#${skinId})"/>
+    <circle cx="34" cy="30" r="4" fill="url(#${skinId})"/>
+    <circle cx="25" cy="29" r="14.5" fill="url(#${skinId})"/>
+    <path d="M13 41c0-7.5 5.4-12 12-12s12 4.5 12 12z" fill="url(#${skinId})"/>
+    <path d="${hp}" fill="url(#${hairId})"/>
+    <path d="M25 24c1.4 0 2.3 1 2.1 2.3l-.8 4.2c-.2 1-1.1 1.5-1.3 1.5" stroke="${hair}" stroke-opacity=".35" stroke-width="1" fill="none" stroke-linecap="round"/>
+    <path d="M15 26.5c1-1 3-1.2 4.2-.4M31 26.5c1-1 3-1.2 4.2-.4" stroke="${hair}" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    <circle cx="19.5" cy="28.5" r="1.5" fill="#241a12"/>
+    <circle cx="30.5" cy="28.5" r="1.5" fill="#241a12"/>
+    <path d="M20 35c2 2.2 8 2.2 10 0" stroke="#7a4a30" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </svg>`;
+}
+
+function renderReviews(lang){
+  const track = document.getElementById('revTrack');
+  track.innerHTML = REVIEWS.map((r,i)=>`
+    <div class="rev-card">
+      <div class="rev-head">
+        <div class="avatar">${avatarSVG(r.skin,r.hair,r.bg,i)}</div>
+        <div>
+          <div class="rev-name-row">
+            <span class="rev-name">${r.name[lang]||r.name.fr}</span>
+            <span class="rev-verified" title="Client vérifié">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+          </div>
+          <div class="rev-meta">${r.meta[lang]||r.meta.fr}</div>
+        </div>
+      </div>
+      <div class="rev-source">
+        <div class="rev-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+        <div class="rev-google">
+          <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.25 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.09A6.6 6.6 0 0 1 5.5 12c0-.73.12-1.43.34-2.09V7.07H2.18A11 11 0 0 0 1 12c0 1.77.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          <span>${(I18N[lang]&&I18N[lang].rev_src)||'Avis Google'}</span>
+        </div>
+      </div>
+      <div class="rev-text">${r.text[lang]||r.text.fr}</div>
+      <div class="rev-date">${r.time[lang]||r.time.fr}</div>
+    </div>
+  `).join('');
+}
+document.getElementById('revNext').addEventListener('click',()=>{
+  document.getElementById('revTrack').scrollBy({left:320,behavior:'smooth'});
+});
+document.getElementById('revPrev').addEventListener('click',()=>{
+  document.getElementById('revTrack').scrollBy({left:-320,behavior:'smooth'});
+});
+
+/* ============================================================
+   LANGUAGE SWITCHING
+   ============================================================ */
+const langBtn = document.getElementById('langBtn');
+const langMenu = document.getElementById('langMenu');
+const langBtnFlag = document.getElementById('langBtnFlag');
+const langBtnLabel = document.getElementById('langBtnLabel');
+const FLAGS = {fr:"🇫🇷",ar:"🇲🇦",es:"🇪🇸",en:"🇬🇧",it:"🇮🇹"};
+
+langBtn.addEventListener('click',(e)=>{
+  e.stopPropagation();
+  langMenu.classList.toggle('open');
+  langBtn.setAttribute('aria-expanded', langMenu.classList.contains('open'));
+});
+document.addEventListener('click',()=>langMenu.classList.remove('open'));
+
+langMenu.querySelectorAll('button').forEach(btn=>{
+  btn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    setLanguage(btn.dataset.lang);
+    langMenu.classList.remove('open');
+  });
+});
+
+function setLanguage(lang){
+  currentLang = lang;
+  const dict = I18N[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key] !== undefined) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-html');
+    if(dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-placeholder');
+    if(dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+  });
+
+  langBtnFlag.textContent = FLAGS[lang];
+  langBtnLabel.textContent = lang.toUpperCase();
+  langMenu.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.lang === lang));
+
+  renderReviews(lang);
+  updateWaLinks();
+  resetAIChat();
+}
+
+/* ============================================================
+   GALLERY — advanced lightbox (keyboard, swipe, counter)
+   ============================================================ */
+const galItems = Array.from(document.querySelectorAll('.gal-item'));
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCaption = document.getElementById('lbCaption');
+const lbCounter = document.getElementById('lbCounter');
+let lbIndex = 0;
+
+function openLightbox(idx){
+  lbIndex = idx;
+  updateLightbox();
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateLightbox(){
+  const item = galItems[lbIndex];
+  const img = item.querySelector('img');
+  const cap = item.querySelector('.gal-cap');
+  lbImg.src = img.src;
+  lbImg.alt = cap ? cap.textContent : '';
+  lbCaption.textContent = cap ? cap.textContent : '';
+  lbCounter.textContent = `${lbIndex + 1} / ${galItems.length}`;
+}
+function lbNext(){ lbIndex = (lbIndex + 1) % galItems.length; updateLightbox(); }
+function lbPrev(){ lbIndex = (lbIndex - 1 + galItems.length) % galItems.length; updateLightbox(); }
+
+galItems.forEach((item, i)=>{
+  item.addEventListener('click', ()=> openLightbox(i));
+});
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbNext').addEventListener('click', lbNext);
+document.getElementById('lbPrev').addEventListener('click', lbPrev);
+lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e)=>{
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowRight') lbNext();
+  if(e.key === 'ArrowLeft') lbPrev();
+});
+// touch swipe support
+let touchStartX = null;
+lightbox.addEventListener('touchstart', (e)=>{ touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+lightbox.addEventListener('touchend', (e)=>{
+  if(touchStartX === null) return;
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if(Math.abs(dx) > 40){ dx > 0 ? lbPrev() : lbNext(); }
+  touchStartX = null;
+}, {passive:true});
+
+/* ============================================================
+   FLOATING BUTTONS — WhatsApp / Call / GPS
+   ============================================================ */
+function updateWaLinks(){
+  const msg = encodeURIComponent(I18N[currentLang].wa_prefill);
+  const link = `https://wa.me/${CONFIG.whatsappNumber}?text=${msg}`;
+  document.getElementById('waFab').href = link;
+  document.getElementById('heroWaLink').href = link;
+}
+document.getElementById('callFab').href = `tel:${CONFIG.phoneNumber}`;
+document.getElementById('gpsFab').href = `https://www.google.com/maps/search/?api=1&query=${CONFIG.gpsQuery}`;
+
+/* ============================================================
+   HEADER SCROLL / MOBILE MENU
+   ============================================================ */
+/* ============================================================
+   HERO VIDEO — sound toggle
+   ============================================================ */
+const heroVideo = document.getElementById('heroVideo');
+const heroSoundBtn = document.getElementById('heroSoundBtn');
+const soundOff = document.getElementById('heroSoundIconOff');
+const soundOn = document.getElementById('heroSoundIconOn');
+if(heroVideo && heroSoundBtn){
+  heroSoundBtn.addEventListener('click', ()=>{
+    heroVideo.muted = !heroVideo.muted;
+    soundOff.style.display = heroVideo.muted ? 'block' : 'none';
+    soundOn.style.display = heroVideo.muted ? 'none' : 'block';
+  });
+}
+
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll',()=>{
+  header.classList.toggle('scrolled', window.scrollY > 30);
+});
+const mobileMenu = document.getElementById('mobileMenu');
+document.getElementById('burgerBtn').addEventListener('click',()=>mobileMenu.classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click',()=>mobileMenu.classList.remove('open'));
+mobileMenu.addEventListener('click',(e)=>{ if(e.target === mobileMenu) mobileMenu.classList.remove('open'); });
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+
+/* ============================================================
+   SERVICE CHIPS (form)
+   ============================================================ */
+document.querySelectorAll('#serviceChips .chip').forEach(chip=>{
+  chip.addEventListener('click',()=>{
+    document.querySelectorAll('#serviceChips .chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+  });
+});
+
+/* ============================================================
+   BOOKING FORM VALIDATION
+   ============================================================ */
+const form = document.getElementById('bookingForm');
+form.addEventListener('submit',(e)=>{
+  e.preventDefault();
+  let valid = true;
+  const setErr = (name,isErr)=>{
+    const field = form.querySelector(`[data-field="${name}"]`);
+    field.classList.toggle('error', isErr);
+    if(isErr) valid = false;
+  };
+  const name = form.name.value.trim();
+  const phone = form.phone.value.trim();
+  const email = form.email.value.trim();
+  const date = form.date.value;
+
+  setErr('name', name.length < 2);
+  setErr('phone', !/^[\d+\s()-]{7,}$/.test(phone));
+  setErr('email', email.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+  setErr('date', !date);
+
+  if(!valid) return;
+
+  const service = document.querySelector('#serviceChips .chip.active').textContent;
+  document.getElementById('formWrap').style.display = 'none';
+  document.getElementById('formSuccess').classList.add('show');
+
+  // Optional: also let the user send the same booking straight to WhatsApp
+  const waMsg = encodeURIComponent(`${I18N[currentLang].wa_prefill}\n${name} — ${phone} — ${service} — ${date}`);
+  window.__lastBookingWaLink = `https://wa.me/${CONFIG.whatsappNumber}?text=${waMsg}`;
+});
+
+/* ============================================================
+   AI AGENT (rule-based FAQ assistant -> WhatsApp handoff)
+   ============================================================ */
+const aiLauncher = document.getElementById('aiLauncher');
+const aiPanel = document.getElementById('aiPanel');
+const aiBody = document.getElementById('aiBody');
+const aiInput = document.getElementById('aiInput');
+let aiAsked = 0;
+
+aiLauncher.addEventListener('click',()=>{
+  aiPanel.classList.toggle('open');
+  if(aiPanel.classList.contains('open') && aiBody.children.length === 0) resetAIChat();
+});
+document.getElementById('aiClose').addEventListener('click',()=>aiPanel.classList.remove('open'));
+
+function addMsg(text, who){
+  const div = document.createElement('div');
+  div.className = 'msg ' + who;
+  div.textContent = text;
+  aiBody.appendChild(div);
+  aiBody.scrollTop = aiBody.scrollHeight;
+  return div;
+}
+
+function addQuickReplies(){
+  const dict = I18N[currentLang];
+  const wrap = document.createElement('div');
+  wrap.className = 'quick-replies';
+  const questions = [
+    {q:dict.ai_q1, a:dict.ai_a1},
+    {q:dict.ai_q2, a:dict.ai_a2},
+    {q:dict.ai_q3, a:dict.ai_a3}
+  ];
+  questions.forEach(item=>{
+    const b = document.createElement('button');
+    b.className = 'qr-btn';
+    b.textContent = item.q;
+    b.addEventListener('click',()=>{
+      addMsg(item.q,'user');
+      setTimeout(()=>{
+        addMsg(item.a,'bot');
+        aiAsked++;
+        showFinalStep();
+      },350);
+    });
+    wrap.appendChild(b);
+  });
+  const humanBtn = document.createElement('button');
+  humanBtn.className = 'qr-btn';
+  humanBtn.textContent = dict.ai_q4;
+  humanBtn.addEventListener('click', goToWhatsApp);
+  wrap.appendChild(humanBtn);
+  aiBody.appendChild(wrap);
+  aiBody.scrollTop = aiBody.scrollHeight;
+}
+
+function showFinalStep(){
+  const dict = I18N[currentLang];
+  const existing = aiBody.querySelector('.wa-final');
+  if(existing) return;
+  setTimeout(()=>{
+    addMsg(dict.ai_final,'bot');
+    const wrap = document.createElement('div');
+    wrap.className = 'quick-replies';
+    const waBtn = document.createElement('button');
+    waBtn.className = 'qr-btn wa-final';
+    waBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C9.37 3 3.98 8.39 3.98 15.06c0 2.24.6 4.33 1.66 6.13L3 29l7.99-2.6a12.03 12.03 0 0 0 5.05 1.1h.01c6.67 0 12.06-5.4 12.06-12.06C28.11 8.39 22.72 3 16.05 3z"/></svg> ${dict.ai_wa_btn}`;
+    waBtn.addEventListener('click', goToWhatsApp);
+    wrap.appendChild(waBtn);
+    aiBody.appendChild(wrap);
+    aiBody.scrollTop = aiBody.scrollHeight;
+  },500);
+}
+
+function goToWhatsApp(){
+  updateWaLinks();
+  window.open(document.getElementById('waFab').href, '_blank');
+}
+
+function resetAIChat(){
+  aiAsked = 0;
+  aiBody.innerHTML = '';
+  const dict = I18N[currentLang];
+  addMsg(dict.ai_greeting,'bot');
+  addQuickReplies();
+}
+
+document.getElementById('aiSend').addEventListener('click', sendAiMessage);
+aiInput.addEventListener('keydown',(e)=>{ if(e.key === 'Enter') sendAiMessage(); });
+
+function sendAiMessage(){
+  const val = aiInput.value.trim();
+  if(!val) return;
+  addMsg(val,'user');
+  aiInput.value = '';
+  const dict = I18N[currentLang];
+  setTimeout(()=>{
+    const lower = val.toLowerCase();
+    let answered = false;
+    const kw = {
+      hours:['horaire','heure','hour','ora','ساعات','دوام'],
+      loc:['adresse','où','ubicad','locat','indirizzo','عنوان','أين'],
+      price:['prix','tarif','precio','price','prezzo','ثمن','سعر']
+    };
+    if(kw.hours.some(k=>lower.includes(k))){ addMsg(dict.ai_a1,'bot'); answered = true; }
+    else if(kw.loc.some(k=>lower.includes(k))){ addMsg(dict.ai_a2,'bot'); answered = true; }
+    else if(kw.price.some(k=>lower.includes(k))){ addMsg(dict.ai_a3,'bot'); answered = true; }
+    else { addMsg(dict.ai_fallback,'bot'); }
+    aiAsked++;
+    showFinalStep();
+  },450);
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+setLanguage('fr');
+</script>
+</body>
+</html>
